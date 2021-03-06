@@ -1,13 +1,11 @@
 # テーブル設計
 
-## shops テーブル
+## admins テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| name               | string     | null: false                    |
 | email              | string     | null: false,unique: true       |
 | encrypted_password | string     | null: false                    |
-| purchase_record    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -29,7 +27,6 @@
 | city               | string     | null: false                    |
 | address            | string     | null: false                    |
 | phone_number       | string     | null: false                    |
-| purchase_record    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -62,7 +59,7 @@
 | shipping_fee_status_id | integer    | null: false                   |
 | prefecture_id          | integer    | null: false                   |
 | scheduled_delivery_id  | integer    | null: false                   |
-| shop                   | references | null: false, foreign_key: true|
+| purchase_record        | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -87,7 +84,6 @@
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | name                 | string     | null: false                    |
-| item_item_category   | references | null: false,  foreign_key: true|
 
 ### Association
 
