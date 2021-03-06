@@ -19,7 +19,7 @@
 | first_name         | string     | null: false                    |
 | last_name_kana     | string     | null: false                    |
 | first_name_kana    | string     | null: false                    |
-| email              | string     | null: false,unique: true       |
+| email              | string     | null: false                    |
 | encrypted_password | string     | null: false                    |
 | user_birth_date    | date       | null: false                    |
 | postal_code        | string     | null: false                    |
