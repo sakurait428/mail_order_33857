@@ -18,6 +18,8 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
   end
 
+  validates :accepted, presence: {message: 'を入力してください'}
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
 end

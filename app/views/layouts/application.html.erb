@@ -22,7 +22,9 @@
         <ul><%= link_to image_tag('/assets/logo/gnav07.jpg'), '#' %></ul>
       <li>
       <div>
-        <%= link_to image_tag('/assets/logo/header-menu.jpg'), '#' %>
+        <% if user_signed_in? %><%= link_to image_tag('/assets/logo/header-menu.jpg'), edit_user_registration_path %>
+        <% else %>
+        <%= link_to image_tag('/assets/logo/header-menu.jpg'), new_user_registration_path %><% end %>
         <%= link_to image_tag('/assets/logo/header-menu02.jpg'), '#' %>
       </div>
     </header>
