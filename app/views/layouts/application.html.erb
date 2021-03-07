@@ -10,6 +10,43 @@
   </head>
 
   <body>
+    <header>
+      <div><%= link_to image_tag('/assets/logo/logo.jpg'), '#' %></div>
+      <li>
+        <ul><%= link_to image_tag('/assets/logo/gnav01.jpg'), '#' %></ul>
+        <ul><%= link_to image_tag('/assets/logo/gnav02.jpg'), '#' %></ul>
+        <ul><%= link_to image_tag('/assets/logo/gnav03.jpg'), '#' %></ul>
+        <ul><%= link_to image_tag('/assets/logo/gnav04.jpg'), '#' %></ul>
+        <ul><%= link_to image_tag('/assets/logo/gnav05.jpg'), '#' %></ul>
+        <ul><%= link_to image_tag('/assets/logo/gnav06.jpg'), '#' %></ul>
+        <ul><%= link_to image_tag('/assets/logo/gnav07.jpg'), '#' %></ul>
+      <li>
+      <div>
+        <%= link_to image_tag('/assets/logo/header-menu.jpg'), '#' %>
+        <%= link_to image_tag('/assets/logo/header-menu02.jpg'), '#' %>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer>
+        <div><%= link_to image_tag('/assets/logo/footer-logo.jpg'), '#' %></div>
+      <li class="mini">
+        <ul><%= link_to "当サイトについて", '#' %></ul>
+        <ul>|</ul>
+        <ul><%= link_to "サイトマップ", '#' %></ul>
+        <ul>|</ul>
+        <ul><%= link_to "ログイン/新規会員登録", '#' %></ul>
+        <ul>|</ul>
+        <ul><%= link_to "特定商取引に関する法律に基づく表記", '#' %></ul>
+        <ul>|</ul>
+        <ul><%= link_to "お問い合わせ", '#' %></ul>
+      <li>
+      <div>
+        <%= link_to image_tag('/assets/logo/sns-btn.jpg'), '#' %>
+        <%= link_to image_tag('/assets/logo/sns-btn02.jpg'), '#' %>
+        <%= link_to image_tag('/assets/logo/sns-btn03.jpg'), '#' %>
+      </div>
+    </footer>
   </body>
 </html>
