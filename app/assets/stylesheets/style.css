@@ -146,7 +146,7 @@ header {
 .btn_sign_in {
   width: 125px;
   height: 35px;
-  color: rgb(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
   cursor: pointer;
   display: block;
   background-image: url("/assets/logo/header-menu06.gif");
@@ -156,7 +156,7 @@ header {
 .btn_login {
   width: 125px;
   height: 35px;
-  color: rgb(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
   cursor: pointer;
   display: block;
   background-image: url("/assets/logo/header-menu04.gif");
