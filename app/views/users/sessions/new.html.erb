@@ -1,26 +1,45 @@
-<h2>Log in</h2>
+<div class="wrapper">
+  <div class="pan">ホーム>オンラインショップ>MYページ(ログイン)</div>
+  <h1 class="page-title ">MYページ(ログイン)</h1>
+  <h2 class="entry-title">会員登録がお済みのお客様</h2>
+  <p class="top_space30">会員の方は、登録時に入力されたメールアドレスとパスワードでログインしてください。</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="wrapper">
+  <div class="login_table">
+    <div class="login_tb_l">
+      <%= f.label :email, 'メールアドレス：' %>
     </div>
-  <% end %>
+    <div class="login_tb_r">
+      <%= f.email_field :email, class:"box80", autocomplete: "email" %>
+    </div>
+    <div class="login_tb_l">
+      <%= f.label :password, 'パスワード：' %>
+    </div>
+    <div class="login_tb_r">
+      <%= f.password_field :password, class:"box80", autocomplete: "current-password" %><br>
+      <% if devise_mapping.rememberable? %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, 'メールアドレスをコンピューターに記憶させる' %>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="wrapper">
+      <%= f.submit "ログイン", :class=>"btn_login btn"  %>
+    </div>
   </div>
 <% end %>
+  <%# フォーム終了 %>
 
-<%= render "users/shared/links" %>
+  <p class="top_bottom30">パスワードを忘れた方はこちらからパスワードの再発行を行ってください。<br>
+  ※メールアドレスを忘れた方は、お手数ですが、お問い合わせページからお問い合わせください。</p>
+
+  <h2 class="entry-title">まだ会員登録されていないお客様</h2>
+  <p>会員登録をすると便利なMyページをご利用いただけます。<br>
+  ログインするだけで、お名前や住所などを入力することなくスムーズにお買い物をお楽しみいただけます。</p>
+
+  <div class="wrapper text_center top_space30">
+    <%= link_to image_tag('/assets/logo/header-menu06.gif'), new_user_registration_path, class:"btn"  %>
+  </div>
+</div>

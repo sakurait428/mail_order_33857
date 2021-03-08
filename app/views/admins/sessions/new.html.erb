@@ -1,26 +1,31 @@
-<h2>Log in</h2>
+<div class="wrapper">
+  <div class="pan">ホーム>オンラインショップ>管理者用ログインページ</div>
+    <h1 class="page-title ">管理者用ログインページ</h1>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="wrapper">
+  <div class="login_table">
+    <div class="login_tb_l">
+      <%= f.label :email, 'メールアドレス：' %>
     </div>
-  <% end %>
+    <div class="login_tb_r">
+      <%= f.email_field :email, class:"box80", autocomplete: "email" %>
+    </div>
+    <div class="login_tb_l">
+      <%= f.label :password, 'パスワード：' %>
+    </div>
+    <div class="login_tb_r">
+      <%= f.password_field :password, class:"box80", autocomplete: "current-password" %><br>
+      <% if devise_mapping.rememberable? %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, 'メールアドレスをコンピューターに記憶させる' %>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="wrapper">
+      <%= f.submit "ログイン", :class=>"btn_login btn"  %>
+    </div>
   </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+  <% end %>
+  <%# フォーム終了 %>

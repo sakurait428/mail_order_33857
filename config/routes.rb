@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'items#index'
+
+  resources :mypages, only: [:index]
   
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
