@@ -3,16 +3,16 @@
   <h1 class="page-title ">MYページ(ログイン)</h1>
   <h2 class="entry-title">会員登録がお済みのお客様</h2>
   <p class="top_space30">会員の方は、登録時に入力されたメールアドレスとパスワードでログインしてください。</p>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 </div>
 
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="wrapper">
   <div class="login_table">
     <div class="login_tb_l">
       <%= f.label :email, 'メールアドレス：' %>
     </div>
     <div class="login_tb_r">
-      <%= f.email_field :email, class:"box80", autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, class:"box80", autocomplete: "email" %>
     </div>
     <div class="login_tb_l">
       <%= f.label :password, 'パスワード：' %>
@@ -29,7 +29,7 @@
       <%= f.submit "ログイン", :class=>"btn_login btn"  %>
     </div>
   </div>
-  <% end %>
+<% end %>
   <%# フォーム終了 %>
 
   <p class="top_bottom30">パスワードを忘れた方はこちらからパスワードの再発行を行ってください。<br>
