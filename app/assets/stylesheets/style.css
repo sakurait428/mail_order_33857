@@ -36,12 +36,29 @@ li {
   max-width: 980px;
 }
 
+.text_center {
+  text-align: center;
+}
+
+.border {
+  border-bottom: #DDDDDD 1px solid;
+  height: 100px;
+}
+
 .mini {
   font-size: 0.9rem;
 }
 
 .red {
   color : #c00;
+}
+
+.top_space30 {
+  padding-top: 30px;
+}
+
+.top_bottom30 {
+  padding: 30px 0;
 }
 
 /* ヘッダー */
@@ -64,6 +81,14 @@ header {
 }
 
 /* メイン */
+
+.entry-title {
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-top: #DDDDDD 1px solid;
+  border-bottom: #DDDDDD 1px solid;
+  color: #333333;
+}
 
 .table {
   font-size: 93%;
@@ -90,27 +115,81 @@ header {
   padding: 10px;
 }
 
+.login_table{
+  font-size: 93%;
+  width: 980px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.login_tb_l {
+  width: 30%;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.login_tb_r {
+  width: 70%;
+  padding: 10px 0;
+}
+
 .btn {
+  transition: 0.5s;
+}
+
+.btn:hover {
+  opacity: 0.7 ;
+}
+
+.btn_sign_in {
   width: 125px;
   height: 35px;
   color: rgb(255, 255, 255, 0);
   cursor: pointer;
   display: block;
-  background-image: url("/assets/logo/entry.gif");
+  background-image: url("/assets/logo/header-menu06.gif");
   margin: 20px auto;
+}
+
+.btn_login {
+  width: 125px;
+  height: 35px;
+  color: rgb(255, 255, 255, 0);
+  cursor: pointer;
+  display: block;
+  background-image: url("/assets/logo/header-menu04.gif");
+  margin: 20px auto;
+}
+
+.box {
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
 }
 
 .box10 {
   width: 10%;
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
 }
 
 .box20 {
   width: 20%;
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
 }
 
 .box80 {
   width: 80%;
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
 }
+
 .kiyaku_text {
   margin: 0 0 5px 0;
   padding: 5px;

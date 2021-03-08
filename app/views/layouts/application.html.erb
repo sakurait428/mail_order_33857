@@ -11,7 +11,7 @@
 
   <body>
     <header>
-      <div><%= link_to image_tag('/assets/logo/logo.jpg'), '#' %></div>
+      <div><%= link_to image_tag('/assets/logo/logo.jpg'), root_path %></div>
       <li>
         <ul><%= link_to image_tag('/assets/logo/gnav01.jpg'), '#' %></ul>
         <ul><%= link_to image_tag('/assets/logo/gnav02.jpg'), '#' %></ul>
@@ -22,17 +22,21 @@
         <ul><%= link_to image_tag('/assets/logo/gnav07.jpg'), '#' %></ul>
       <li>
       <div>
-        <% if user_signed_in? %><%= link_to image_tag('/assets/logo/header-menu.jpg'), edit_user_registration_path %>
+        <% if user_signed_in? %>
+          <%= link_to image_tag('/assets/logo/header-menu03.gif'), destroy_user_session_path, method: :delete, class: "btn" %>
         <% else %>
-        <%= link_to image_tag('/assets/logo/header-menu.jpg'), new_user_registration_path %><% end %>
-        <%= link_to image_tag('/assets/logo/header-menu02.jpg'), '#' %>
+        <%= link_to image_tag('/assets/logo/header-menu01.jpg'), new_user_session_path, class: "btn" %><% end %>
+        <%= link_to image_tag('/assets/logo/header-menu02.jpg'), '#', class: "btn" %>
       </div>
     </header>
 
     <%= yield %>
 
+    <div class="border"></div>
     <footer>
-        <div><%= link_to image_tag('/assets/logo/footer-logo.jpg'), '#' %></div>
+      <div>
+        <%= link_to image_tag('/assets/logo/footer-logo.jpg'), '#' %>
+      </div>
       <li class="mini">
         <ul><%= link_to "当サイトについて", '#' %></ul>
         <ul>|</ul>
@@ -45,9 +49,9 @@
         <ul><%= link_to "お問い合わせ", '#' %></ul>
       <li>
       <div>
-        <%= link_to image_tag('/assets/logo/sns-btn.jpg'), '#' %>
-        <%= link_to image_tag('/assets/logo/sns-btn02.jpg'), '#' %>
-        <%= link_to image_tag('/assets/logo/sns-btn03.jpg'), '#' %>
+        <%= link_to image_tag('/assets/logo/sns-btn.jpg'), '#', class: "btn" %>
+        <%= link_to image_tag('/assets/logo/sns-btn02.jpg'), '#', class: "btn" %>
+        <%= link_to image_tag('/assets/logo/sns-btn03.jpg'), '#', class: "btn" %>
       </div>
     </footer>
   </body>
