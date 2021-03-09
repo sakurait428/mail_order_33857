@@ -1,0 +1,27 @@
+<%= form_with model: @item, url: items_path, local: true do |f| %>
+
+  <br>name
+  <%= f.text_field :name, class:"box", id:"item-name", maxlength:"40" %><br>
+  <br>price
+  <%= f.text_field :price, class:"box", id:"item-price", maxlength:"40" %><br>
+  <br>info_brand
+  <%= f.text_field :info_brand, class:"box", id:"info_brand", maxlength:"40" %><br>
+  <br>info_material
+  <%= f.text_field :info_material, class:"box", id:"info_material", maxlength:"40" %><br>
+  <br>info_size
+  <%= f.text_field :info_size, class:"box", id:"info_size", maxlength:"40" %><br>
+  <br>category_id
+  <%= f.text_area :category_id, class:"box", id:"category_id", maxlength:"40" %><br>
+  <br>sales_status_id
+  <%= f.text_area :sales_status_id, class:"box", id:"sales_status_id", maxlength:"40" %><br>
+  <br>shipping_fee_status_id
+  <%= f.text_area :shipping_fee_status_id, class:"box", id:"shipping_fee_status_id", maxlength:"40" %><br>
+  <br>prefecture_id
+  <%= f.text_area :prefecture_id, class:"box", id:"prefecture_id", maxlength:"40" %><br>
+  <br>scheduled_delivery_id
+  <%= f.text_area :scheduled_delivery_id, class:"box", id:"scheduled_delivery_id", maxlength:"40" %>
+
+  <%= f.submit "出品する" ,class:"sell-btn" %>
+  <%= link_to "もどる", root_path %>
+
+<% end %>
