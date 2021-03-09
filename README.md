@@ -65,21 +65,21 @@
 
 - belongs_to :shop
 - has_one :purchase_record
-- has_many :item_item_categories
+- has_many :item_categories
 
-## item_item_categories
+# item_categories
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | item                 | references | null: false,  foreign_key: true|
-| item_category        | references | null: false,  foreign_key: true|
+| category             | references | null: false,  foreign_key: true|
 
 ### Association
 
 - belongs_to :item
-- belongs_to :item_category
+- belongs_to :category
 
-## item_categories
+# categories
 
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
@@ -87,7 +87,7 @@
 
 ### Association
 
-- has_many :item_item_categories
+- has_many :item_categories
 
 
 ## purchase_records テーブル
