@@ -2,15 +2,17 @@
 
   <%= form_with model: @item, url: items_path, local: true do |f| %>
 
+    <br>商品画像
+    <%= f.file_field :images, name: 'message[images][]', id: 'message_image' %><br>
     <br>商品名
     <%= f.text_field :name, class:"box", id:"item-name", maxlength:"40" %><br>
     <br>商品の説明
     <%= f.text_field :info_product, class:"box", id:"info_product", maxlength:"40" %><br>
     <br>ブランド
     <%= f.text_field :info_brand, class:"box", id:"info_brand", maxlength:"40" %><br>
-    <br>info_material
+    <br>素材
     <%= f.text_field :info_material, class:"box", id:"info_material", maxlength:"40" %><br>
-    <br>info_size
+    <br>サイズ
     <%= f.text_field :info_size, class:"box", id:"info_size", maxlength:"40" %><br>
     <br>カテゴリー
     <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category"}) %><br>
