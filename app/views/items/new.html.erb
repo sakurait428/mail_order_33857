@@ -7,7 +7,12 @@
   <%= form_with model: @item, id: "new_item" , url: items_path, local: true do |f| %>
     <div id="image-list"></div>
     <br>商品画像
-    <%= f.file_field :image, name: 'item[images][]', id: 'item_image' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image_1' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image_2' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image_3' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image_4' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image_5' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image_6' %><br>
     <br>商品名
     <%= f.text_field :name, class:"box", id:"item-name", maxlength:"40" %><br>
     <br>商品の説明

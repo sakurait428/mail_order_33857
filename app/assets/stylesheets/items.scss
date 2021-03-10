@@ -1,6 +1,7 @@
 #image-list {
   height: 150px;
   background-color: rgb(235, 233, 233);
+  display: flex;
 }
 
 #image-list div {
@@ -9,6 +10,7 @@
 }
 
 #image-list img {
+  width: 100%;
   height: 100%;
   padding: 10px;
 }
