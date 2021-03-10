@@ -1,8 +1,23 @@
-<h1>詳細ページ</h1>
+<div class="wrapper">
+  <div class="pan entry-title top_margin30">ホーム > オンラインショップ > 会員登録(入力ページ)</div>
+</div>
 
-  <%= @item.name%>
-  <div class="items">
+<div class="item_container">
+  <div class="items_show_sub">
     <% @item.images.each do |image| %>
-      <%= image_tag image.variant(resize: '640x640'), class:'images' if @item.images.attached? %>
+      <%= image_tag image.variant(resize: '130x130'), class:'images' if @item.images.attached? %>
     <% end %>
   </div>
+  <div class="items_show_main">
+    <% @item.images.first(1).each do |image| %>
+      <%= image_tag image.variant(resize: '600x600'), class:'images' if @item.images.attached? %>
+    <% end %>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="item_title">
+    <span class="bold"><%= @item.info_brand%></span><br>
+    <%= @item.name%>
+  </div>
+</div>

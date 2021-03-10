@@ -56,5 +56,17 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
       createImageHTML(blob)
     });
+    document.getElementById('item_image_7').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_8').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
   });
 }
