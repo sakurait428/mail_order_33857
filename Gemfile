@@ -66,3 +66,10 @@ gem 'active_hash'
 gem 'mini_magick'
 
 gem 'image_processing', '~> 1.2'
+
+#Image
+gem 'rmagick'
+gem 'paperclip'
+
+#AWS
+gem "aws-sdk-s3", require: false
