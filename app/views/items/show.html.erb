@@ -3,6 +3,6 @@
   <%= @item.name%>
   <div class="items">
     <% @item.images.each do |image| %>
-      <%= image_tag image, class:'images' %>
+      <%= image_tag image.variant(resize: '640x640'), class:'images' if @item.images.attached? %>
     <% end %>
   </div>
