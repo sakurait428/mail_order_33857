@@ -17,3 +17,11 @@
   <%= link_to "ユーザー ログイン", new_user_session_path %><br>
   <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %>
 </div>
+<% @items.each do |item| %>
+  <%= item.name%>
+  <div class="items">
+    <% item.images.each do |image| %>
+      <%= image_tag image, class:'images' %>
+    <% end %>
+  </div>
+<% end %>
