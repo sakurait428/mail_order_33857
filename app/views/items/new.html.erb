@@ -1,9 +1,13 @@
 <div class ="wrapper">
 
-  <%= form_with model: @item, url: items_path, local: true do |f| %>
+<% @item.images.each do |image| %>
+  <%= image_tag image, class: 'images' %>
+<% end %>
+
+  <%= form_with model: @item, id: "new_item" , url: items_path, local: true do |f| %>
     <div id="image-list"></div>
     <br>商品画像
-    <%= f.file_field :images, name: 'message[images][]', id: 'message_image' %><br>
+    <%= f.file_field :image, name: 'item[images][]', id: 'item_image' %><br>
     <br>商品名
     <%= f.text_field :name, class:"box", id:"item-name", maxlength:"40" %><br>
     <br>商品の説明
