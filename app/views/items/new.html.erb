@@ -1,7 +1,7 @@
 <div class ="wrapper">
 
   <%= form_with model: @item, url: items_path, local: true do |f| %>
-
+    <div id="image-list"></div>
     <br>商品画像
     <%= f.file_field :images, name: 'message[images][]', id: 'message_image' %><br>
     <br>商品名
