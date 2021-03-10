@@ -1,6 +1,8 @@
 <h1>詳細ページ</h1>
-<div class="item">
-  <% @item.images.each do |image| %>
-    <%= image_tag image, class:'images' %>
-  <% end %>
-</div>
+
+  <%= @item.name%>
+  <div class="items">
+    <% @item.images.each do |image| %>
+      <%= image_tag image, class:'images' %>
+    <% end %>
+  </div>
