@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="pan entry-title top_margin30">ホーム > オンラインショップ > 会員登録(入力ページ)</div>
+  <div class="pan entry-title top_margin30">ホーム > オンラインショップ > <%= @item.name%></div>
 </div>
 
 <div class="item_container">
@@ -17,22 +17,48 @@
 
 <div class="wrapper">
   <div class="item_title">
-    <span class="bold"><%= @item.info_brand%></span><br>
-    <%= @item.name%>
+    <%= @item.info_brand%><br>
+    <span class="item_price"><%= @item.name%></span><br>
+    <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%>
   </div>
-  <div>
-    販売価格：￥<%= @item.price.to_s(:delimited)%>
+    <div class="item_product">
+    <span class="mini bold">商品説明：</span><%= @item.info_product%>
   </div>
-    <div>
-    商品説明：<%= @item.info_product%>
+  <div class="item_material">
+    <span class="mini bold">素材：</span><%= @item.info_material%>
   </div>
-  <div>
-    素材：<%= @item.info_material%>
+  <div class="item_size">
+    <span class="mini bold">サイズ：</span><%= @item.info_size%><br>
+    <span class="mini">※表示は全てcmになります。平置きにて採寸しておりますので多少の誤差はご容赦ください。
+      <span class="blue"><%= link_to "■サイズ ガイド", "#" %></span></span>
   </div>
-  <div>
-    サイズ：<%= @item.info_size%>
+</div>
+
+<div class="wrapper">
+  <div class="relevance_image">
+    <%= image_tag "/assets/logo/relevance-title.jpg" %>
   </div>
-  <div>
-    カテゴリ：<%= @item.category.name%>
-  </div>
+</div>
+
+<div class="wrapper items_index">
+  <% @items.last(9).each do |item| %>
+    <% if ( item.category_id == @item.category_id ) && ( item.id != @item.id )%>
+      <div class="item_index">
+        <% item.images.first(1).each do |image| %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
+          <% end %>
+        <% end %>
+        <p>
+          <%= link_to item_path(item.id) do %>
+            <%= item.name%><br>
+          <% end %>
+            ￥<%= item.price.to_s(:delimited)%>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="wrapper">
 </div>

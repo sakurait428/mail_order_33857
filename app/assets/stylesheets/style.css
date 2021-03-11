@@ -53,6 +53,10 @@ li {
   color : #c00;
 }
 
+.blue {
+  color: #0033CC;
+}
+
 .bold {
   font-weight: bold;
 }
