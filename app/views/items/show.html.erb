@@ -5,7 +5,7 @@
 <div class="item_container">
   <div class="items_show_sub">
     <% @item.images.each do |image| %>
-      <%= image_tag image.variant(resize: '130x130'), class:'images' if @item.images.attached? %>
+      <%= image_tag image.variant(resize: '600x600'), class:'images' if @item.images.attached? %>
     <% end %>
   </div>
   <div class="items_show_main">
@@ -19,5 +19,20 @@
   <div class="item_title">
     <span class="bold"><%= @item.info_brand%></span><br>
     <%= @item.name%>
+  </div>
+  <div>
+    販売価格：￥<%= @item.price.to_s(:delimited)%>
+  </div>
+    <div>
+    商品説明：<%= @item.info_product%>
+  </div>
+  <div>
+    素材：<%= @item.info_material%>
+  </div>
+  <div>
+    サイズ：<%= @item.info_size%>
+  </div>
+  <div>
+    カテゴリ：<%= @item.category_id%>
   </div>
 </div>
