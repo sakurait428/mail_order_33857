@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="pan">ホーム > オンラインショップ > 商品出品ページ</div>
+  <h1 class="page-title ">カテゴリ追加</h1>
+</div>
+
+
+<div class ="wrapper">
+
+<%= form_with model: @category, id: "new_category" , url: categories_path, local: true do |f| %>
+
+  <div class="table">
+
+    <div class="table_l">
+      カテゴリ名
+    </div>
+    <div class="table_r">
+      <%= f.text_field :name, class:"box", id:"category-name", maxlength:"40" %><br>
+    </div>
+
+  </div>
+
+  <div class="wrapper">
+    <%= f.submit "追加する", :class=>"btn_item"  %>
+  </div>
+
+<% end %>
