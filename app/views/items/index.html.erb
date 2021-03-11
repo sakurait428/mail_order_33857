@@ -16,7 +16,8 @@
   <br>
   <%= link_to "ユーザー 新規登録", new_user_registration_path %><br>
   <%= link_to "ユーザー ログイン", new_user_session_path %><br>
-  <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %><br>
+  edit_category
 </div>
 <% @items.each do |item| %>
   <%= link_to item_path(item.id) do %>

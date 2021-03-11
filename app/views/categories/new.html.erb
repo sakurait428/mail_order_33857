@@ -22,5 +22,12 @@
   <div class="wrapper">
     <%= f.submit "追加する", :class=>"btn_item"  %>
   </div>
-
 <% end %>
+
+<div class ="wrapper">
+  <p>カテゴリを編集</p>
+  <% @categores.each do |category| %>
+    <%= link_to category.name, edit_category_path(category.id) %>
+    <br>
+  <% end %>
+</div>

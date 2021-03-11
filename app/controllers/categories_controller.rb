@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   def new
+    @categores = Category.all.order("name ASC")
     @category = Category.new
   end
 
@@ -14,7 +15,7 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.new
+    @category = Category.find(params[:id])
   end
 
   def destroy
