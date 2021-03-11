@@ -1,8 +1,70 @@
-<h1>詳細ページ</h1>
+<div class="wrapper">
+  <div class="pan entry-title top_margin30">ホーム > オンラインショップ > <%= @item.name%></div>
+</div>
 
-  <%= @item.name%>
-  <div class="items">
+<div class="item_container">
+  <div class="items_show_sub">
     <% @item.images.each do |image| %>
-      <%= image_tag image, class:'images' %>
+      <%= image_tag image.variant(resize: '600x600'), class:'images' if @item.images.attached? %>
     <% end %>
   </div>
+  <div class="items_show_main">
+    <% @item.images.first(1).each do |image| %>
+      <%= image_tag image.variant(resize: '600x600'), class:'images' if @item.images.attached? %>
+    <% end %>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="item_title_container">
+    <div class="item_title">
+      <%= @item.info_brand%><br>
+      <span class="item_price"><%= @item.name%></span><br>
+      <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%>
+    </div>
+      <div class="item_title">
+      <%= image_tag "/assets/logo/detail-btn.jpg" %><br>
+      <%= image_tag "/assets/logo/detail-btn02.jpg" %>
+    </div>
+  </div>
+  <div class="item_product">
+    <span class="mini bold">商品説明：</span><%= @item.info_product%>
+  </div>
+  <div class="item_material">
+    <span class="mini bold">素材：</span><%= @item.info_material%>
+  </div>
+  <div class="item_size">
+    <span class="mini bold">サイズ：</span><%= @item.info_size%><br>
+    <span class="mini">※表示は全てcmになります。平置きにて採寸しておりますので多少の誤差はご容赦ください。
+      <span class="blue"><%= link_to "■サイズ ガイド", "#" %></span></span>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="relevance_image">
+    <%= image_tag "/assets/logo/relevance-title.jpg" %>
+  </div>
+</div>
+
+<div class="wrapper items_index">
+  <% @items.last(9).each do |item| %>
+    <% if ( item.category_id == @item.category_id ) && ( item.id != @item.id )%>
+      <div class="item_index">
+        <% item.images.first(1).each do |image| %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
+          <% end %>
+        <% end %>
+        <p>
+          <%= link_to item_path(item.id) do %>
+            <%= item.name%><br>
+          <% end %>
+            ￥<%= item.price.to_s(:delimited)%>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="wrapper">
+</div>

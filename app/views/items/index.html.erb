@@ -1,27 +1,76 @@
-<div class="wrapper">
-<h1>トップページ</h1>
-<div><% if admin_signed_in? %>管理者でログインしています ID:<%= current_admin.id %>
-<% else %>
-ログインしていません<% end %></div>
-<div>
-<div><% if user_signed_in? %>ユーザーでログインしています ID:<%= current_user.id %>
-<% else %>
-ログインしていません<% end %></div>
+<div class="main_visual">
+  <%= image_tag "/assets/main/kloshar-top-1370-480.jpg" %>
+</div>
 
+<div class="wraper">
+  <div class="index_logo top_space30">
+    <%= image_tag "/assets/logo/news-area-title.jpg" %>
+  </div>
+</div>
+
+<div class="wrapper news_containers">
+  <div class="news_border">
+    <div class="news_container">
+      News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News
+    </div>
+  </div>
+  <div class="news_border">
+    <div class="news_container">
+      News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News<br>News
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div>
+      <% if admin_signed_in? %>管理者でログインしています ID:<%= current_admin.id %>
+    <% else %>
+      ログインしていません
+    <% end %>
+  </div>
+</div>
+
+<div class="wrapper">
+    <% if user_signed_in? %>ユーザーでログインしています ID:<%= current_user.id %>
+  <% else %>
+    ログインしていません
+  <% end %>
+</div>
+
+<div class="wrapper">
   <%= link_to "管理者 新規登録", new_admin_registration_path %><br>
   <%= link_to "管理者 ログイン", new_admin_session_path %><br>
   <%= link_to "管理者 ログアウト", destroy_admin_session_path, method: :delete %><br>
   <%= link_to "出品ページ", new_item_path %><br>
+  <%= link_to "カテゴリ追加", new_category_path %><br>
   <br>
   <%= link_to "ユーザー 新規登録", new_user_registration_path %><br>
   <%= link_to "ユーザー ログイン", new_user_session_path %><br>
-  <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %><br>
 </div>
-<% @items.each do |item| %>
-  <%= item.name%>
-  <div class="items">
-    <% item.images.each do |image| %>
-      <%= image_tag image, class:'images' %>
-    <% end %>
+
+<div class="wraper">
+  <div class="index_logo top_space30">
+    <%= image_tag "/assets/logo/newitems-title.jpg" %>
   </div>
-<% end %>
+</div>
+
+<div class="wrapper items_index">
+  <% @items.last(9).each do |item| %>
+      <div class="item_index">
+        <% item.images.first(1).each do |image| %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
+          <% end %>
+        <% end %>
+        <p>
+          <%= link_to item_path(item.id) do %>
+            <%= item.name%><br>
+          <% end %>
+            ￥<%= item.price.to_s(:delimited)%>
+        </p>
+      </div>
+    
+  <% end %>
+</div>
+

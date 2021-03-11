@@ -13,31 +13,60 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       const blobImage = document.createElement('img')
       blobImage.setAttribute('src', blob)
 
-      // ファイル選択ボタンを生成
-      const inputHTML = document.createElement('input')
-      inputHTML.setAttribute('id', `item_image_${imageElementNum}`)
-      inputHTML.setAttribute('name', 'item[images][]')
-      inputHTML.setAttribute('type', 'file')
-
       // 生成したHTMLの要素をブラウザに表示させる
       imageElement.appendChild(blobImage)
-      imageElement.appendChild(inputHTML)
       ImageList.appendChild(imageElement)
 
-      inputHTML.addEventListener('change', (e) => {
-        file = e.target.files[0];
-        blob = window.URL.createObjectURL(file);
 
-        createImageHTML(blob)
-      })
     }
 
-    document.getElementById('item_image').addEventListener('change', (e) => {
+    document.getElementById('item_image_1').addEventListener('change', (e) => {
       let file = e.target.files[0];
       let blob = window.URL.createObjectURL(file);
 
       createImageHTML(blob)
+    });
+    document.getElementById('item_image_2').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
 
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_3').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_4').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_5').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_6').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_7').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
+    });
+    document.getElementById('item_image_8').addEventListener('change', (e) => {
+      let file = e.target.files[0];
+      let blob = window.URL.createObjectURL(file);
+
+      createImageHTML(blob)
     });
   });
 }
