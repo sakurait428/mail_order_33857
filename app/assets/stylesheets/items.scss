@@ -1,5 +1,13 @@
 // index
 
+.main_visual {
+  width: 100vw;
+  text-align: center;
+}
+.main_visual img {
+  max-width: 100vw;
+}
+
 .items_index {
   display: flex;
   flex-wrap: wrap;
@@ -12,6 +20,10 @@
 
 .item_index a {
   display: block;
+}
+
+.index_logo {
+  text-align: center;
 }
 
 
