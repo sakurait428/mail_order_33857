@@ -16,12 +16,18 @@
 </div>
 
 <div class="wrapper">
-  <div class="item_title">
-    <%= @item.info_brand%><br>
-    <span class="item_price"><%= @item.name%></span><br>
-    <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%>
+  <div class="item_title_container">
+    <div class="item_title">
+      <%= @item.info_brand%><br>
+      <span class="item_price"><%= @item.name%></span><br>
+      <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%>
+    </div>
+      <div class="item_title">
+      <%= image_tag "/assets/logo/detail-btn.jpg" %><br>
+      <%= image_tag "/assets/logo/detail-btn02.jpg" %>
+    </div>
   </div>
-    <div class="item_product">
+  <div class="item_product">
     <span class="mini bold">商品説明：</span><%= @item.info_product%>
   </div>
   <div class="item_material">
