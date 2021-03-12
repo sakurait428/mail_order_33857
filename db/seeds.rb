@@ -1,59 +1,82 @@
-CategoryBland.create(name: "LOUIS VUITTON")
-CategoryBland.create(name: "CHANEL")
-CategoryBland.create(name: "HERMES")
-CategoryBland.create(name: "GUCCI")
-CategoryBland.create(name: "FERAGAMO")
-CategoryBland.create(name: "LOUBOTIN")
-CategoryBland.create(name: "BALENCIAGA")
-CategoryBland.create(name: "BERLUTI")
-CategoryBland.create(name: "CHROME HEARTS")
-CategoryBland.create(name: "LOREE RODKIN")
-CategoryBland.create(name: "JUSTIN DAVIS")
-CategoryBland.create(name: "LONE ONES")
-CategoryBland.create(name: "ROYAL ORDER")
-CategoryBland.create(name: "その他")
-CategoryGenreOne.create(name: "OUTER")
-CategoryGenreOne.create(name: "BOUTTOMS")
-CategoryGenreOne.create(name: "TOPS")
-CategoryGenreOne.create(name: "SHOES")
-CategoryGenreOne.create(name: "BAG")
-CategoryGenreOne.create(name: "ACCESSORY")
-CategoryGenreOne.create(name: "その他")
-CategoryGenreTwo.create(name: "コート")
-CategoryGenreTwo.create(name: "レザー")
-CategoryGenreTwo.create(name: "ブルゾン")
-CategoryGenreTwo.create(name: "ジャケット")
-CategoryGenreTwo.create(name: "デニム")
-CategoryGenreTwo.create(name: "スウェットパンツ")
-CategoryGenreTwo.create(name: "スキニー・スリム")
-CategoryGenreTwo.create(name: "ワイド・イージー")
-CategoryGenreTwo.create(name: "ショート・ハーフ")
-CategoryGenreTwo.create(name: "ワイド・イージー")
-CategoryGenreTwo.create(name: "スラックス")
-CategoryGenreTwo.create(name: "Tシャツ")
-CategoryGenreTwo.create(name: "ロングスリーブ")
-CategoryGenreTwo.create(name: "スウェット・フード")
-CategoryGenreTwo.create(name: "ニット")
-CategoryGenreTwo.create(name: "ベスト・ジレ")
-CategoryGenreTwo.create(name: "レイヤード・タンク")
-CategoryGenreTwo.create(name: "フレグランス")
-CategoryGenreTwo.create(name: "スニーカー")
-CategoryGenreTwo.create(name: "レザーシューズ")
-CategoryGenreTwo.create(name: "ブーツ")
-CategoryGenreTwo.create(name: "サンダル")
-CategoryGenreTwo.create(name: "クラッチ")
-CategoryGenreTwo.create(name: "ボストン・トート")
-CategoryGenreTwo.create(name: "ショルダー・2/3way")
-CategoryGenreTwo.create(name: "バックパック")
-CategoryGenreTwo.create(name: "ボディーバッグ")
-CategoryGenreTwo.create(name: "ウォレット")
-CategoryGenreTwo.create(name: "ネックレス")
-CategoryGenreTwo.create(name: "ボディーバッグ")
-CategoryGenreTwo.create(name: "リング")
-CategoryGenreTwo.create(name: "キーケース")
-CategoryGenreTwo.create(name: "ブレスレット")
-CategoryGenreTwo.create(name: "ストール")
-CategoryGenreTwo.create(name: "ベルト")
-CategoryGenreTwo.create(name: "ヘッドウェア")
-CategoryGenreTwo.create(name: "アイウェア")
-CategoryGenreTwo.create(name: "その他")
+ladies = Category.create(name: 'レディース')
+outer, bouttoms, tops, life, shoes, bag, accessory = ladies.children.create(
+  [
+    { name: 'アウター' },
+    { name: 'ボトムス' },
+    { name: 'トップス' },
+    { name: 'ライフ' },
+    { name: 'シューズ' },
+    { name: 'バッグ' },
+    { name: 'アクセッサリー' },
+  ]
+)
+
+['コート', 'レザー', 'ブルゾン', 'ジャケット'].each do |name|
+  outer.children.create(name: name)
+end
+
+['デニム', 'スウェットパンツ', 'スキニー・スリム','ワイド・イージー','ショート・ハーフ','スラックス'].each do |name|
+  bouttoms.children.create(name: name)
+end
+
+['ワンピース','Tシャツ','ロングスリーブ','シャツ・カーディガン','スウェット・フード','ニット','ベスト・ジレ','レイヤード・タンク'].each do |name|
+  tops.children.create(name: name)
+end
+
+['フレグランス'].each do |name|
+  life.children.create(name: name)
+end
+
+['スニーカー', 'レザーシューズ', 'ブーツ', 'サンダル'].each do |name|
+  shoes.children.create(name: name)
+end
+
+['クラッチ', 'ボストン・トート', 'ショルダー・2/3way', 'バックパック', 'ボディーバッグ'].each do |name|
+  bag.children.create(name: name)
+end
+
+['ウォレット', 'ネックレス', 'リング', 'キーケース','ブレスレット','ストール','ベルト','ヘッドウェア','アイウェア','その他'].each do |name|
+  accessory.children.create(name: name)
+end
+
+
+mens = Category.create(name: 'メンズ')
+outer, bouttoms, tops, life, shoes, bag, accessory = mens.children.create(
+  [
+    { name: 'アウター' },
+    { name: 'ボトムス' },
+    { name: 'トップス' },
+    { name: 'ライフ' },
+    { name: 'シューズ' },
+    { name: 'バッグ' },
+    { name: 'アクセッサリー' },
+  ]
+)
+
+['コート', 'レザー', 'ブルゾン', 'ジャケット'].each do |name|
+  outer.children.create(name: name)
+end
+
+['デニム', 'スウェットパンツ', 'スキニー・スリム','ワイド・イージー','ショート・ハーフ','スラックス'].each do |name|
+  bouttoms.children.create(name: name)
+end
+
+['Tシャツ','ロングスリーブ','シャツ・カーディガン','スウェット・フード','ニット','ベスト・ジレ','レイヤード・タンク'].each do |name|
+  tops.children.create(name: name)
+end
+
+['フレグランス'].each do |name|
+  life.children.create(name: name)
+end
+
+['スニーカー', 'レザーシューズ', 'ブーツ', 'サンダル'].each do |name|
+  shoes.children.create(name: name)
+end
+
+['クラッチ', 'ボストン・トート', 'ショルダー・2/3way', 'バックパック', 'ボディーバッグ'].each do |name|
+  bag.children.create(name: name)
+end
+
+['ウォレット', 'ネックレス', 'リング', 'キーケース','ブレスレット','ストール','ベルト','ヘッドウェア','アイウェア','その他'].each do |name|
+  accessory.children.create(name: name)
+end 

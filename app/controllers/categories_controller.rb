@@ -1,10 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-    @category_genders = CategoryGenger.all.order("name ASC")
-    @category_blands = CategoryBland.all.order("name ASC")
-    @category_genre_ones = CategoryGenreOne.all.order("name ASC")
-    @category_genre_twos = CategoryGenreTwo.all.order("name ASC")
+    @categores = Category.all
   end
 
   def new
