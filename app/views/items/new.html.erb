@@ -55,10 +55,28 @@
       <%= f.text_field :info_size, class:"box", id:"info_size", maxlength:"40" %><br>
     </div>
     <div class="table_l">
-      カテゴリー
+      性別
     </div>
     <div class="table_r">
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category"}) %><br>
+      <%= f.collection_select(:category_gender_id, CategoryGender.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-gender"}) %><br>
+    </div>
+    <div class="table_l">
+      ブランド
+    </div>
+    <div class="table_r">
+      <%= f.collection_select(:category_bland_id, CategoryBland.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-bland"}) %><br>
+    </div>
+    <div class="table_l">
+      カテゴリー１
+    </div>
+    <div class="table_r">
+      <%= f.collection_select(:category_genre_one_id, CategoryGenreOne.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-genre-one"}) %><br>
+    </div>
+    <div class="table_l">
+      カテゴリー２
+    </div>
+    <div class="table_r">
+      <%= f.collection_select(:category_genre_two_id, CategoryGenreTwo.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-genre-two"}) %><br>
     </div>
     <div class="table_l">
       販売価格

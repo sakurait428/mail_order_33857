@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'items#index'
+  get 'item_category', to: 'items#category'
 
   resources :items
   resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]

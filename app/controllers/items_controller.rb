@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Item.includes(:category).order("created_at DESC")
+    @items = Item.includes(:category_genre_two).order("created_at DESC")
   end
 
   def new
@@ -22,10 +22,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def category
+    @item = Item.find(params[:id])
+    @items = Item.includes(:category_genre_two).order("created_at DESC")
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :info_product, :price, :info_brand, :info_material, :info_size, :category_id, images: [])
+    params.require(:item).permit(:name, :info_product, :price, :info_brand, :info_material, :info_size, :category_bland_id, :category_gender_id, :category_genre_one_id, :category_genre_two_id, images: [])
   end
 
 end

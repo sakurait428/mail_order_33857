@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div class="pan entry-title top_margin30">
+    <%= link_to "ホーム", root_path, class: :"blue" %> > 
+    <%= link_to "オンラインショップ", "#", class: :"blue" %> > 
+    <%= link_to @item.category_gender.name, item_category_path(id: @item.category_gender.id), class: :"blue" %> > 
+    <%= link_to @item.category_bland.name, item_category_path(id: @item.category_bland.id), class: :"blue" %> > 
+    <%= link_to @item.category_genre_one.name, item_category_path(id: @item.category_genre_one.id), class: :"blue" %> > 
+    <%= link_to @item.category_genre_two.name, item_category_path(id: @item.category_genre_two.id), class: :"blue" %> > 
+    <%= link_to @item.name, item_category_path(id: @item.id), class: :"blue" %>
+  </div>
+</div>
+
+<div class="wrapper items_index">
+  <% @items.last(9).each do |item| %>
+    <% if item.category_genre_two_id == @item.category_genre_two_id %>
+      <div class="item_index">
+        <% item.images.first(1).each do |image| %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
+          <% end %>
+        <% end %>
+        <p>
+          <%= link_to item_path(item.id) do %>
+            <%= item.name%><br>
+          <% end %>
+            ￥<%= item.price.to_s(:delimited)%>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="wrapper">
+</div>
