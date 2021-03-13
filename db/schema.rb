@@ -77,10 +77,8 @@ ActiveRecord::Schema.define(version: 2021_03_12_113543) do
     t.text "info_brand"
     t.text "info_material"
     t.text "info_size", null: false
-    t.integer "category_bland_id", null: false
-    t.integer "category_gender_id", null: false
-    t.integer "category_genre_one_id", null: false
-    t.integer "category_genre_two_id", null: false
+    t.string "gender", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
