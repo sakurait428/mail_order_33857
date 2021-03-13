@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Item.includes(:category_genre_two).order("created_at DESC")
+    @items = Item.includes(:category).order("created_at DESC")
   end
 
   def new
@@ -42,8 +42,8 @@ class ItemsController < ApplicationController
   end
 
   def category
-    @item = Item.find(params[:id])
-    @items = Item.includes(:category_genre_two).order("created_at DESC")
+    @category = Item.find(params[:id])
+    @items = Item.includes(:category).order("created_at DESC")
   end
 
   private
