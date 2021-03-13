@@ -58,25 +58,20 @@
       性別
     </div>
     <div class="table_r">
-      <%= f.collection_select(:category_gender_id, CategoryGender.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-gender"}) %><br>
-    </div>
-    <div class="table_l">
-      ブランド
-    </div>
-    <div class="table_r">
-      <%= f.collection_select(:category_bland_id, CategoryBland.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-bland"}) %><br>
+
+      <%= f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, "test"), {}, {class: 'select', id: 'parent_category'} %>
     </div>
     <div class="table_l">
       カテゴリー１
     </div>
     <div class="table_r">
-      <%= f.collection_select(:category_genre_one_id, CategoryGenreOne.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-genre-one"}) %><br>
+      <%= f.select :category, options_for_select(@category_child_array.map{|c|[c, {}]}, "test"), {}, {class: 'select', id: 'parent_category'} %>
     </div>
     <div class="table_l">
       カテゴリー２
     </div>
     <div class="table_r">
-      <%= f.collection_select(:category_genre_two_id, CategoryGenreTwo.all, :id, :name, {include_blank: '-----'}, {class:"select-box", id:"item-category-genre-two"}) %><br>
+      <%= f.select :category, options_for_select(@category_grandchild_array.map{|c|[c, {}]}, "test"), {}, {class: 'select', id: 'parent_category'} %>
     </div>
     <div class="table_l">
       販売価格

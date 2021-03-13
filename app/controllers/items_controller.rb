@@ -11,7 +11,26 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @categores = Category.all
+    @category = :category_id_eq_any
+
+    # 親セレクトボックスの初期値(配列)
+    @category_parent_array = ["---"]
+    # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
+
+    @category_child_array = ["---"]
+    Category.where(ancestry: 1).each do |child|
+    @category_child_array << child.name
+    end
+
+    # itemに紐づいていいる孫カテゴリーが属している孫カテゴリーの一覧を配列で取得
+    @category_grandchild_array = ["---"]
+    Category.where(ancestry: nil).each do |grandchild|
+    @category_grandchild_array << grandchild.name
+    end
+
   end
 
   def create
