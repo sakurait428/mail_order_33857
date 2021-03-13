@@ -8,6 +8,19 @@
 
 <%= form_with model: @item, id: "new_item" , url: items_path, local: true do |f| %>
 
+
+<div class="listing-form-box">
+  <div class="listing-product-detail__category">
+    <%= f.label '性別', class: 'listing-default__label' %>
+    <span class=".listing-default--require">必須</span>
+      <div class='.listing-select-wrapper'>
+        <div class='listing-select-wrapper__box'>
+          <%= f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
+        <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+      </div>
+    </div>
+</div>
+
 <div id="image-list">
 </div>
   <div class="table">
@@ -59,19 +72,20 @@
     </div>
     <div class="table_r">
 
-      <%= f.select :category, options_for_select(@category_parent_array.map{|c|[c, {}]}, "test"), {}, {class: 'select', id: 'parent_category'} %>
+      
+
     </div>
     <div class="table_l">
       カテゴリー１
     </div>
     <div class="table_r">
-      <%= f.select :category, options_for_select(@category_child_array.map{|c|[c, {}]}, "test"), {}, {class: 'select', id: 'parent_category'} %>
+      
     </div>
     <div class="table_l">
       カテゴリー２
     </div>
     <div class="table_r">
-      <%= f.select :category, options_for_select(@category_grandchild_array.map{|c|[c, {}]}, "test"), {}, {class: 'select', id: 'parent_category'} %>
+
     </div>
     <div class="table_l">
       販売価格
