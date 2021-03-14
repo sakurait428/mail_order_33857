@@ -1,3 +1,13 @@
+<div class="wrapper">
+  <div class="pan entry-title top_margin30">
+    <%= link_to "ホーム", root_path, class: :"blue" %> > 
+    <%= link_to "オンラインショップ", "#", class: :"blue" %> > 
+    <%= link_to @category.root.name, item_category_one_path(id: @category.root.id), class: :"blue" %> > 
+    <%= link_to @category.name, item_category_two_path(id: @category.id), class: :"blue" %> > 
+  </div>
+</div>
+
+
 <% @items.each do |item| %>
   <% if item.category.parent.id == @params.to_i %>
     <%= item.category.name %><br>
