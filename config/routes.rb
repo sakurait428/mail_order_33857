@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
   root to: 'items#index'
+  get 'item_category_one', to: 'items#category_one'
+  get 'item_category_two', to: 'items#category_two'
+  get 'item_category_three', to: 'items#category_three'
 
-  resources :items
-  resources :categories, only: [:new, :create, :edit, :update, :destroy]
+  resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+  resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
   
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',

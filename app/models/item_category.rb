@@ -1,5 +1,0 @@
-class ItemCategory < ApplicationRecord
-
-
-
-end

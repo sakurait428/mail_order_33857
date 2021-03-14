@@ -1,0 +1,17 @@
+<% @categores.find(1).siblings.each do |oya| %>
+  <%= oya.name %>
+<% end %><br><br>
+
+
+
+<% @categores.find(1).children.each do |oya| %>
+  <%= oya.name %><br>
+    <% oya.children.each do |ko| %>
+      <br>　<%= ko.name %><br>
+    <% end %>
+<% end %>
+
+<br><br>
+<% @categores.each do |category|%>
+  <%= category.name %><br>
+<% end %>
