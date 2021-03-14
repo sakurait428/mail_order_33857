@@ -41,9 +41,22 @@ class ItemsController < ApplicationController
     end
   end
 
-  def category
-    @category = Item.find(params[:id])
-    @items = Item.includes(:category).order("created_at DESC")
+  def category_one
+    @params = params[:id]
+    @categores = Category.all
+    @items = Item.all.order("created_at DESC")
+  end
+
+  def category_two
+    @params = params[:id]
+    @categores = Category.all
+    @items = Item.all.order("created_at DESC")
+  end
+
+  def category_three
+    @params = params[:id]
+    @categores = Category.all
+    @items = Item.all.order("created_at DESC")
   end
 
   private

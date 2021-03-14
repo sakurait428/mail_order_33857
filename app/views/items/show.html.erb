@@ -2,9 +2,9 @@
   <div class="pan entry-title top_margin30">
     <%= link_to "ホーム", root_path, class: :"blue" %> > 
     <%= link_to "オンラインショップ", "#", class: :"blue" %> > 
-    <%= link_to @item.category.root.name, item_category_path(id: @item.category.root.id), class: :"blue" %> > 
-    <%= link_to @item.category.parent.name, item_category_path(id: @item.category.parent.id), class: :"blue" %> > 
-    <%= link_to @item.category.name, item_category_path(id: @item.category.id), class: :"blue" %> > 
+    <%= link_to @item.category.root.name, item_category_one_path(id: @item.category.root.id), class: :"blue" %> > 
+    <%= link_to @item.category.parent.name, item_category_two_path(id: @item.category.parent.id), class: :"blue" %> > 
+    <%= link_to @item.category.name, item_category_three_path(id: @item.category.id), class: :"blue" %> > 
     <%= @item.name %>
   </div>
 </div>

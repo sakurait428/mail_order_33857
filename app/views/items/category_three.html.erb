@@ -1,0 +1,13 @@
+
+
+<% @items.each do |item| %>
+  <% if item.category_id == @params.to_i %>
+    <%= item.category.name %><br>
+    <%= item.name %><br>
+    <% item.images.first(1).each do |image| %>
+       <%= link_to item_path(item.id) do %>
+         <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
+       <% end %>
+    <% end %><br><br>
+  <% end %>
+<% end %>
