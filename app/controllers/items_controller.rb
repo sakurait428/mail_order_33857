@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order("created_at DESC")
+    @cart_items = current_cart.cart_items
   end
 
   def show

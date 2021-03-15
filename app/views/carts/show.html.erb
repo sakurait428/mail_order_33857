@@ -1,3 +1,27 @@
+<div class="wrapper">
+  <div class="pan">ホーム>オンラインショップ>カート</div>
+  <% if @cart_items.length == 0 %>
+    <h1 class="page-title ">お客様のカートに商品はありません</h1>
+  <% else %>
+    <h1 class="page-title ">
+      ショッピングカート<% flash.each do |key, value| %><%= content_tag(:span, value, class: key) %>
+      <% end %>
+    </h1>
+  <% end %>
+
+
+
+
+
+
+
+</div>
+
 <% @cart_items.each do |item| %>
     <%= item.item.name %><br>
+    <% item.item.images.first(1).each do |image| %>
+      <%= link_to  item_path(item.item.id) do %>
+        <%= image_tag image.variant(resize: '300x300'), class:'images' %>
+      <% end %>
+    <% end %>
 <% end %>

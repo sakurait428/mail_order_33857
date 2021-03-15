@@ -13,7 +13,7 @@ class CartsController < ApplicationController
 
     @cart_item.quantity += params[:quantity].to_i
     @cart_item.save
-    redirect_to current_cart
+    redirect_to current_cart, notice: 'へ追加されました'
   end
 
   # カート詳細画面から、「更新」を押した時のアクション
