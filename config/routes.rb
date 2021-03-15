@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :carts, only: [:show]
+
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
   
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',

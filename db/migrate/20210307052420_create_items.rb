@@ -11,8 +11,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :gender,                null: false
       t.integer :category_id,          null: false
 
-      t.references :purchase_record,   null: false
-
       t.timestamps
     end
   end
