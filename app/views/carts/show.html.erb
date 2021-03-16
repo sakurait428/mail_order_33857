@@ -8,20 +8,28 @@
       <% end %>
     </h1>
   <% end %>
-
-
-
-
-
-
-
 </div>
 
-<% @cart_items.each do |item| %>
-    <%= item.item.name %><br>
-    <% item.item.images.first(1).each do |image| %>
-      <%= link_to  item_path(item.item.id) do %>
-        <%= image_tag image.variant(resize: '300x300'), class:'images' %>
-      <% end %>
-    <% end %>
-<% end %>
+
+<div class="wrapper">
+  <% @cart_items.each do |cart_item| %>
+    <div class="cart-container">
+        <% cart_item.item.images.first(1).each do |image| %>
+          <%= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
+            <%= image_tag image.variant(resize: '300x300') %>
+          <% end %>
+        <% end %>
+      <div class="cart-info">
+        <span class="cart-name blue">
+          <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
+        </span>
+          <%= cart_item.item.category.name %><br>
+          <%= form_with url: update_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]),local: true do |f| %>
+          数量：<%= f.text_field :quantity, class:"box20", maxlength:"2", value: cart_item.quantity %>
+          <br>
+          <%= f.submit "変更する"  %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,8 +1,8 @@
 class CartsController < ApplicationController
-  before_action :setup_cart_item!, only: [:add_item, :update_item, :delete_item]
+  before_action :setup_cart_item!, only: [:show, :add_item, :update_item, :delete_item]
 
   def show
-    @cart_items = current_cart.cart_items
+    @cart_items = current_cart.cart_items    
   end
 
   # 商品一覧画面から、「商品購入」を押した時のアクション
@@ -18,6 +18,7 @@ class CartsController < ApplicationController
 
   # カート詳細画面から、「更新」を押した時のアクション
   def update_item
+    
     @cart_item.update(quantity: params[:quantity].to_i)
     redirect_to current_cart
   end

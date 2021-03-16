@@ -1,0 +1,20 @@
+.cart-container {
+  max-width: 980px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cart-link a {
+  display: block;
+}
+
+.cart-info {
+  width: 60%;
+}
+
+.cart-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
