@@ -20,6 +20,7 @@
           <% end %>
         <% end %>
       <div class="cart-info">
+      カートID:<%= cart_item.id %>
         <span class="cart-name blue">
           <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
         </span>
@@ -29,7 +30,11 @@
           <br>
           <%= f.submit "変更する"  %>
           <% end %>
+          <%= link_to "削除する", delete_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]), method: :delete %>
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="wrapper">レジに進む
 </div>
