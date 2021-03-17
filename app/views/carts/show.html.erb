@@ -25,6 +25,7 @@
           <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
         </span>
           <%= cart_item.item.category.name %><br>
+          <%= cart_item.item.price.to_s(:delimited) %>円<br>
           <%= form_with url: update_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]),local: true do |f| %>
           数量：<%= f.text_field :quantity, class:"box20", maxlength:"2", value: cart_item.quantity %>
           <br>
@@ -36,5 +37,7 @@
   <% end %>
 </div>
 
-<div class="wrapper">レジに進む
+
+<div class="wrapper">
+  <%= link_to "購入画面へ", cart_orders_path(params[:id]) %>
 </div>

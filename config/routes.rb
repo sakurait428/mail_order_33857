@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :carts, only: [:show]
+  resources :carts, only: [:show] do
+    resources :orders, only: [:index, :create]
+  end
 
   post '/add_item' => 'carts#add_item'
   post '/update_item' => 'carts#update_item'
