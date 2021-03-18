@@ -1,0 +1,66 @@
+購入ページ<br>
+カートID：<%#= @cart.id %><br>
+<br>
+<br>
+
+<div class="wrapper">
+  <p>お届け先住所</p>
+  <p><%#= current_user.last_name %>
+  <%#= current_user.first_name %><br>
+  〒<%#= current_user.postal_code %><br>
+  <%#= current_user.prefecture.name %> <%#= current_user.city %> <%#= current_user.address %><br>
+  電話番号: <%#= current_user.phone_number %></p>
+</div>
+
+<div class="wrapper">
+<%# @sum = 0 %>
+  <%# @cart.cart_items.each do |cart_item| %>
+  <div class="cart-container">
+    <%# cart_item.item.images.first(1).each do |image| %>
+      <%#= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
+        <%#= image_tag image.variant(resize: '300x300') %>
+      <%# end %>
+    <%# end %>
+    <div class="cart-info">
+      <span class="cart-name blue">
+        <%#= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
+      </span>
+      <%#= cart_item.item.category.name %><br>
+      <%#= cart_item.item.price.to_s(:delimited) %>円<br>
+      数量：<%#= cart_item.quantity %>
+      <%# @sum += ( cart_item.item.price * cart_item.quantity ) %>
+    </div>
+  </div>
+  <%# end %>
+  商品金額：<%#= @sum.to_s(:delimited) %>円<br>
+  送料：800円<br>
+  ご請求額： <%#= (@sum + 800).to_s(:delimited) %>円
+</div>
+<%#= link_to "購入する", cart_orders_path(@cart.id),method: :post %>
+
+<%= form_with model: @order, url: cart_orders_path(@cart.id),local: true do |f| %>
+  <div class="field">
+    <%= f.label :氏名 %>
+    <%= f.text_field :name, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_area :address, rows: 3, cols: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :メールアドレス %>
+    <%= f.email_field :email, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :電話番号 %>
+    <%= f.telephone_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :お支払い方法 %>
+    <%= f.select(:pay_type, [['選択して下さい', ''],['現金', '現金']]) %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit '注文を確定する' %>
+  </div>
+<% end %>
