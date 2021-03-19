@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_105040) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "postal_code", null: false
     t.text "address", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
@@ -137,7 +138,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_105040) do
     t.string "postal_code", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
-    t.string "address", null: false
+    t.string "block", null: false
     t.string "phone_number", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+  def index
+    @orders = Order.includes(:cart_items)
+  end
+
   def new
     @cart = current_cart
     @order = Order.new
@@ -18,7 +22,7 @@ class OrdersController < ApplicationController
       if @order.save
 	Cart.destroy(session[:cart_id])
 	session[:cart_id] = nil
-        format.html { redirect_to cart_url, notice: 'ご注文ありがとうございました。' }
+        format.html { redirect_to root_path, notice: 'ご注文ありがとうございました。' }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render :new }
@@ -30,7 +34,7 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:name, :address, :email, :phone_number, :pay_type)
+      params.require(:order).permit(:name, :postal_code, :address, :email, :phone_number, :pay_type)
     end
 
 end

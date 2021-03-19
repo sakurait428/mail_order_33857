@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :user_birth_date
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :city
-    validates :address
+    validates :block
     validates :postal_code, format: { with: /\A[0-9]+\z/i, message: "is invalid."}
     validates :phone_number, format: { with: /\A[0-9]+\z/i, message: "is invalid."}
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }

@@ -45,6 +45,7 @@
   <%= link_to "カテゴリ追加", new_category_path %><br>
   <%= link_to "カテゴリ一覧", categories_path %><br>
   <%= link_to "カート一覧", cart_path(current_cart.id) %><br>
+  <%= link_to "購入情報", cart_orders_path(current_cart.id) %><br>
   
   <br>
   <%= link_to "ユーザー 新規登録", new_user_registration_path %><br>
