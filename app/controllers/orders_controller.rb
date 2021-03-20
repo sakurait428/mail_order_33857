@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.includes(:cart_items)
+    @carts = Cart.all
   end
 
   def new
@@ -20,15 +21,15 @@ class OrdersController < ApplicationController
     @order.add_items(current_cart)
     respond_to do |format|
       if @order.save
-	Cart.destroy(session[:cart_id])
-	session[:cart_id] = nil
+      	Cart.destroy(session[:cart_id])
+      	session[:cart_id] = nil
         format.html { redirect_to root_path, notice: 'ご注文ありがとうございました。' }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
+       end
+     end
   end
 
   private

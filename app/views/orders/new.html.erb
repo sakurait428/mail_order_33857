@@ -1,34 +1,9 @@
-購入ページ<br>
-カートID：<%= @cart.id %><br>
-<br>
-<br>
+<div class="wrapper">
+  <div class="pan">ホーム>オンラインショップ>お届け先の指定</div>
+    <h1 class="page-title ">お届け先の指定</h1>
+</div>
 
 <div class="wrapper">
-<% @sum = 0 %>
-  <% @cart.cart_items.each do |cart_item| %>
-  <div class="cart-container">
-    <% cart_item.item.images.first(1).each do |image| %>
-      <%= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
-        <%= image_tag image.variant(resize: '300x300') %>
-      <% end %>
-    <% end %>
-    <div class="cart-info">
-      <span class="cart-name blue">
-        <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
-      </span>
-      <%= cart_item.item.category.name %><br>
-      <%= cart_item.item.price.to_s(:delimited) %>円<br>
-      数量：<%= cart_item.quantity %>
-      <% @sum += ( cart_item.item.price * cart_item.quantity ) %>
-    </div>
-  </div>
-  <% end %>
-  商品金額：<%= @sum.to_s(:delimited) %>円<br>
-  送料：800円<br>
-  ご請求額： <%= (@sum + 800).to_s(:delimited) %>円
-</div>
-<%= link_to "購入する", cart_orders_path(@cart.id),method: :post %>
-
 <%= form_with model: @order, url: cart_orders_path(@cart.id),local: true do |f| %>
   <div class="field">
     <%= f.label :氏名 %>
@@ -41,7 +16,7 @@
   </div>
   <div class="field">
     <%= f.label :住所 %>
-    <% user_address = current_user.prefecture.name + current_user.block + current_user.city %>
+    <% user_address = current_user.prefecture.name + current_user.city + current_user.block %>
     <%= f.text_area :address, value: user_address, rows: 3, cols: 40 %>
   </div>
   <div class="field">
@@ -61,3 +36,45 @@
     <%= f.submit '注文を確定する' %>
   </div>
 <% end %>
+</div>
+
+<div class="wrapper">
+  <div class="cart_table">
+    <div class="ct_1 ct_top">削除</div>
+    <div class="ct_2 ct_top">商品写真</div>
+    <div class="ct_3 ct_top">商品名</div>
+    <div class="ct_4 ct_top">単価(税込み)</div>
+    <div class="ct_5 ct_top">数量</div>
+    <div class="ct_6 ct_top">小計</div>
+
+<% @sum = 0 %>
+<% @cart.cart_items.each do |cart_item| %>
+    <div class="ct_1 blue">
+      <%= link_to "削除", delete_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]), method: :delete %>
+    </div>
+    <div class="ct_2">
+      <% cart_item.item.images.first(1).each do |image| %>
+      <%= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
+        <%= image_tag image.variant(resize: '100x100') %>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="ct_3 cart-name">
+      <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
+      <%= cart_item.item.category.name %>
+    </div>
+    <div class="ct_4"><%= cart_item.item.price.to_s(:delimited) %>円</div>
+    <div class="ct_5">
+      数量：<%= cart_item.quantity %>
+    </div>
+    <div class="ct_6">
+      <%= (cart_item.item.price * cart_item.quantity).to_s(:delimited) %>円
+      <% @sum += (cart_item.item.price * cart_item.quantity) %>
+    </div>
+    <% end %>
+    <div class="ct_7">送料</div>
+    <div class="ct_8">800円</div>
+    <div class="ct_7">合計</div>
+    <div class="ct_8"><%= (@sum + 800).to_s(:delimited) %>円</div>
+  </div>
+</div>

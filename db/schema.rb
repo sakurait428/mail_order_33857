@@ -58,11 +58,13 @@ ActiveRecord::Schema.define(version: 2021_03_18_105040) do
     t.integer "quantity", default: 0
     t.bigint "item_id"
     t.bigint "cart_id"
+    t.bigint "user_id"
     t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
     t.index ["item_id"], name: "index_cart_items_on_item_id"
+    t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
 
   create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

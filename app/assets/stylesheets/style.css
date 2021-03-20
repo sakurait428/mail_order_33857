@@ -196,6 +196,13 @@ header {
   padding: 2px 3px;
 }
 
+.box40 {
+  width: 40%;
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
+}
+
 .box80 {
   width: 80%;
   border: #ddd 1px solid;

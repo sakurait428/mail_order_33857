@@ -2,11 +2,12 @@ class CartsController < ApplicationController
   before_action :setup_cart_item!, only: [:show, :add_item, :update_item, :delete_item]
 
   def show
-    @cart_items = current_cart.cart_items    
+    @cart_items = current_cart.cart_items
   end
 
   # 商品一覧画面から、「商品購入」を押した時のアクション
   def add_item
+
     if @cart_item.blank?
       @cart_item = current_cart.cart_items.build(item_id: params[:item_id])
     end

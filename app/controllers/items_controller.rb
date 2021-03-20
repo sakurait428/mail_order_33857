@@ -63,6 +63,10 @@ class ItemsController < ApplicationController
     @items = Item.all.order("created_at DESC")
   end
 
+  def purchase_record
+    @orders = Order.all
+  end
+
   private
 
   def item_params

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'item_category_one', to: 'items#category_one'
   get 'item_category_two', to: 'items#category_two'
   get 'item_category_three', to: 'items#category_three'
+  get 'purchase_record', to: 'items#purchase_record'
 
   resources :items do
     collection do
