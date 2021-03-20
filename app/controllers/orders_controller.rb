@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:name, :postal_code, :address, :email, :phone_number, :pay_type)
+      params.require(:order).permit(:name, :postal_code, :address, :email, :phone_number).merge(user_id: current_user.id)
     end
 
 end

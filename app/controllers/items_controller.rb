@@ -67,6 +67,10 @@ class ItemsController < ApplicationController
     @orders = Order.all
   end
 
+  def purchase_record_admin
+    @orders = Order.all
+  end
+
   private
 
   def item_params

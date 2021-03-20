@@ -1,7 +1,6 @@
-<h3><%= current_user.last_name %> <%= current_user.first_name %> 様 購入情報</h3>
+<h3>管理者用 購入情報</h3>
 <br><br>
 <% @orders.each do |order| %>
-<% if order.user_id == current_user.id %>
 <hr>
   注文ID：<%= order.id %><br>
   注文日：<%= order.created_at.strftime('%Y/%m/%d') %><br>
@@ -24,5 +23,4 @@
     送料：<%= 800 %>円<br>
     <% total_price = 800 + @total_price %>
     御請求金額：<%= total_price.to_s(:delimited) %>円<br><br>
-  <% end %>
 <% end %>

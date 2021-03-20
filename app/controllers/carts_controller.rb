@@ -9,7 +9,7 @@ class CartsController < ApplicationController
   def add_item
 
     if @cart_item.blank?
-      @cart_item = current_cart.cart_items.build(item_id: params[:item_id])
+      @cart_item = current_cart.cart_items.build(item_id: params[:item_id],user_id: params[:user_id])
     end
 
     @cart_item.quantity += params[:quantity].to_i
@@ -33,7 +33,7 @@ class CartsController < ApplicationController
   private
 
   def setup_cart_item!
-    @cart_item = current_cart.cart_items.find_by(item_id: params[:item_id])
+    @cart_item = current_cart.cart_items.find_by(item_id: params[:item_id],user_id: params[:user_id])
   end
 
 end

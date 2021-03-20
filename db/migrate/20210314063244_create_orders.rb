@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.text :address,           null: false
       t.string :email,           null: false
       t.string :phone_number,    null: false
-      t.string :pay_type,        null: false
+      t.references :user,        null: false
       t.timestamps
     end
   end

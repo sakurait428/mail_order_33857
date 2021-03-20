@@ -126,9 +126,10 @@ ActiveRecord::Schema.define(version: 2021_03_18_105040) do
     t.text "address", null: false
     t.string "email", null: false
     t.string "phone_number", null: false
-    t.string "pay_type", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
