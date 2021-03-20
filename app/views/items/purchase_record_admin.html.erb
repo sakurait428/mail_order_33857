@@ -1,26 +1,70 @@
-<h3>管理者用 購入情報</h3>
-<br><br>
+<div class="wrapper">
+  <div class="pan">ホーム > オンラインショップ > 注文履歴</div>
+  <h1 class="page-title ">注文履歴（管理者用）</h1>
+</div>
+
+<div class="wrapper">
+</div>
+
 <% @orders.each do |order| %>
-<hr>
-  注文ID：<%= order.id %><br>
-  注文日：<%= order.created_at.strftime('%Y/%m/%d') %><br>
-  <br>
-  <% @total_price = 0 %>
-  <% order.cart_items.each do |item| %>
-    <% item.item.images.first(1).each do |image| %>
-      <%= link_to  item_path(item.item.id) , class: "cart-link" do %>
-        <%= image_tag image.variant(resize: '150x150') %><br>
+<div class="wrapper">
+  <div class="record_table">
+    <div class="rt_1 rt_top">注文ID</div>
+    <div class="rt_2 rt_top">注文日</div>
+    <div class="rt_3 rt_top">商品画像</div>
+    <div class="rt_4 rt_top">商品名</div>
+    <div class="rt_5 rt_top">単価（税込み）</div>
+    <div class="rt_6 rt_top">数量</div>
+    <div class="rt_7 rt_top">小計</div>
+    
+    <div class="rt_1"><%= order.id %></div>
+    <div class="rt_2"><%= order.created_at.strftime('%Y/%m/%d') %></div>
+    <div class="rt_3">
+      <% order.cart_items.each do |item| %>
+        <% item.item.images.first(1).each do |image| %>
+        <%= link_to  item_path(item.item.id) , class: "cart-link" do %>
+          <%= image_tag image.variant(resize: '100x100') %>
+        <% end %>
       <% end %>
     <% end %>
-    商品名：<%= item.item.name %><br>
-    数量：<%= item.quantity %><br>
-    <% price = item.item.price * item.quantity %>
-    商品金額：<%= price.to_s(:delimited) %>円<br>
-    <% @total_price += price.to_i %>
-  <% end %>
-    <br>
-    合計金額：<%= @total_price.to_s(:delimited) %>円<br>
-    送料：<%= 800 %>円<br>
-    <% total_price = 800 + @total_price %>
-    御請求金額：<%= total_price.to_s(:delimited) %>円<br><br>
+    </div>
+    <div class="rt_4">
+      <% order.cart_items.each do |item| %>
+        <p><%= item.item.name %></p>
+      <% end %>
+    </div>
+    <div class="rt_5">
+      <% order.cart_items.each do |item| %>
+        <p><%= item.item.price.to_s(:delimited) %>円</p>
+      <% end %>
+    </div>
+    <div class="rt_6">
+      <% order.cart_items.each do |item| %>
+      <p><%= item.quantity %></p>
+    <% end %>
+    </div>
+    <div class="rt_7">
+      <% order.cart_items.each do |item| %>
+      <% subtotal = item.item.price * item.quantity %>
+      <p><%= subtotal.to_s(:delimited) %>円</p>
+    <% end %>
+    </div>
+
+    <div class="rt_10">お届け先</div>
+    <div class="rt_11"><%= order.name %><br>〒<%= order.postal_code %><br><%= order.address %></div>
+
+    <div class="rt_8">送料</div>
+    <div class="rt_9">800円</div>
+
+    <div class="rt_8 rt_top">合計</div>
+    <div class="rt_9 rt_top">
+      <% @total_price = 0 %>
+      <% order.cart_items.each_with_index do |item| %>
+        <% @total_price += (item.item.price * item.quantity) %>
+      <% end %>
+      <%= (@total_price + 800).to_s(:delimited) %>円
+    </div>
+  </div>
+  </div>
+</div>
 <% end %>

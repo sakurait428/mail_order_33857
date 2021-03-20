@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
     @category = Category.find(params[:id])
     @params = params[:id]
     @categores = Category.all
-    @items = Item.all.order("created_at DESC")
+    @items = Item.where(category_id: params[:id]).order("created_at DESC")
   end
 
   def purchase_record

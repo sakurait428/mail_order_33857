@@ -306,3 +306,21 @@
   border-right: #ddd 1px solid;
   border-bottom: #ddd 1px solid;
 }
+
+//カテゴリーページ
+
+.category_items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.category_item {
+  min-width: 30%;
+  padding-bottom: 30px;
+}
+
+.category_item img {
+  display: block;
+
+}
