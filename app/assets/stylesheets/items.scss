@@ -177,3 +177,132 @@
 .select-box {
   width: 40%;
 }
+
+// 購入履歴ページ
+
+.record_table {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-left: #ddd 1px solid;
+  border-top: #ddd 1px solid;
+  margin-bottom: 30px;
+}
+
+.rt_top {
+  padding: 10px;
+  text-align: center;
+  background-color: #EEE;
+}
+
+.rt_1 {
+  width: 10%;
+  padding: 10px;
+  text-align: center;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  align-items :center;
+  justify-content: center;
+}
+
+.rt_2 {
+  width: 15%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  align-items :center;
+  justify-content: center;
+}
+
+.rt_3 {
+  width: 15%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items :center;
+}
+
+.rt_3 img {
+  display: block;
+  margin: 5px;
+}
+
+.rt_4 {
+  width: 25%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items :center;
+}
+
+.rt_5 {
+  width: 15%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items :flex-end;
+}
+
+.rt_6 {
+  width: 10%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items :center;
+}
+
+.rt_7 {
+  width: 10%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items :flex-end;
+}
+
+.rt_8 {
+  width: 90%;
+  padding: 10px;
+  text-align: right;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+}
+
+.rt_9 {
+  width: 10%;
+  padding: 10px;
+  text-align: right;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+}
+
+.rt_10 {
+  width: 10%;
+  padding: 10px;
+  text-align: center;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+}
+
+.rt_11 {
+  width: 90%;
+  padding: 10px;
+  border-right: #ddd 1px solid;
+  border-bottom: #ddd 1px solid;
+}

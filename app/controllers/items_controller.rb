@@ -64,11 +64,11 @@ class ItemsController < ApplicationController
   end
 
   def purchase_record
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user.id).order("created_at DESC")
   end
 
   def purchase_record_admin
-    @orders = Order.all
+    @orders = Order.all.order("created_at DESC")
   end
 
   private
