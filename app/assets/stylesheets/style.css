@@ -40,6 +40,10 @@ li {
   text-align: center;
 }
 
+.box_center {
+  margin: 0%auto;
+}
+
 .border {
   border-bottom: #DDDDDD 1px solid;
   height: 100px;
@@ -198,6 +202,13 @@ header {
 
 .box40 {
   width: 40%;
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
+}
+
+.box60 {
+  width: 60%;
   border: #ddd 1px solid;
   margin-right: 5px;
   padding: 2px 3px;
