@@ -42,7 +42,15 @@
     <%= f.label :お支払い方法 %>
   </div>
   <div class="order_tab_r">
-    <%= f.select(:pay_type, [['選択して下さい', ''],['現金', '現金']]) %>
+    【カード番号】
+     <br>
+     <%= "**** **** **** " + @card[:last4] %>
+     <br>
+     【有効期限】
+     <br>
+     <%= @card[:exp_month] %>
+     /
+     <%= @card[:exp_year] %><br>
   </div>
 <br>
   <div class="box_center">

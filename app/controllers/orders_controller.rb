@@ -8,11 +8,29 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     @order = Order.new
+    total_price =params[:total_price].to_s
 
     respond_to do |format|
       format.html
       format.json { render json: @order }
     end
+
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+
+    customer_token = current_user.card.customer_token
+    Payjp::Charge.create(
+      amount: total_price,
+      customer: customer_token,
+      currency: 'jpy'
+      )
+    if user_signed_in?
+      card = Card.find_by(user_id: current_user.id)
+    end
+
+    redirect_to new_card_path and return unless card.present?
+
+    customer = Payjp::Customer.retrieve(card.customer_token)
+    @card = customer.cards.first
 
   end
 
