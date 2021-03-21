@@ -19,7 +19,6 @@ class CartsController < ApplicationController
 
   # カート詳細画面から、「更新」を押した時のアクション
   def update_item
-    
     @cart_item.update(quantity: params[:quantity].to_i)
     redirect_to current_cart
   end
@@ -33,7 +32,7 @@ class CartsController < ApplicationController
   private
 
   def setup_cart_item!
-    @cart_item = current_cart.cart_items.find_by(item_id: params[:item_id],user_id: params[:user_id])
+    @cart_item = current_cart.cart_items.find_by(item_id: params[:item_id])
   end
 
 end

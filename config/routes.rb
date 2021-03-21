@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   resources :carts, only: [:show] do
     resources :orders, only: [:index, :new, :create]
   end
-  
-  resources :users, only: [:edit, :update]
+
   resources :cards, only: [:new, :create]
 
   post '/add_item' => 'carts#add_item'

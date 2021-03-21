@@ -24,16 +24,12 @@
 <div class="wrapper">
   <div>
       <% if admin_signed_in? %>管理者でログインしています ID:<%= current_admin.id %>
-    <% else %>
-      ログインしていません
     <% end %>
   </div>
 </div>
 
 <div class="wrapper">
     <% if user_signed_in? %>ユーザーでログインしています ID:<%= current_user.id %>
-  <% else %>
-    ログインしていません
   <% end %>
 </div>
 
@@ -54,7 +50,7 @@
   <%= link_to "ユーザー ログイン", new_user_session_path %><br>
   <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %><br>
   <% if user_signed_in? %>
-    <%= link_to 'マイページへ行く', edit_user_path(current_user) %><br>
+    <%= link_to 'マイページへ行く', edit_user_registration_path %><br>
   <% end %>
 </div>
 

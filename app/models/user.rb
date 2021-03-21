@@ -24,4 +24,16 @@ class User < ApplicationRecord
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+    params.delete(:password)
+    params.delete(:password_confirmation)
+
+    self.attributes = params
+    result = self.save(validate: false)
+    clean_up_passwords
+    result
+  end
+
 end
