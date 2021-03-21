@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     if user_signed_in?
       card = Card.find_by(user_id: current_user.id)

@@ -10,6 +10,7 @@
   <% end %>
 </div>
 
+<% if CartItem.exists?(cart_id: current_cart.id) == true %>
 <div class="wrapper">
   <div class="cart_table">
     <div class="ct_1 ct_top">削除</div>
@@ -62,3 +63,5 @@
   <%= link_to image_tag("/assets/logo/purchase.gif"), new_cart_order_path(params[:id]), class:"cart_btn" %>
 </p>
 </div>
+
+<% end %>

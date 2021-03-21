@@ -80,14 +80,15 @@
      <br>
      <%= @card[:exp_month] %>
      /
-     <%= @card[:exp_year] %>
+     <%= @card[:exp_year] %><br>
     </div>
     </div>
     <div class="wrapper">
     <%= f.submit "新規登録をする", :class=>"btn_sign_in"  %>
   </div>
 <% end %>
-
  </div>
 </div>
 
+
+<p><%= button_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
