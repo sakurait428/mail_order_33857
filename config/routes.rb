@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+  get 'cards/new'
   root to: 'items#index'
   get 'item_category_one', to: 'items#category_one'
   get 'item_category_two', to: 'items#category_two'
@@ -17,6 +19,9 @@ Rails.application.routes.draw do
   resources :carts, only: [:show] do
     resources :orders, only: [:index, :new, :create]
   end
+  
+  resources :users, only: [:edit, :update]
+  resources :cards, only: [:new, :create]
 
   post '/add_item' => 'carts#add_item'
   post '/update_item' => 'carts#update_item'

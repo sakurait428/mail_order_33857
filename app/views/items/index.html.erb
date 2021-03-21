@@ -53,6 +53,9 @@
   <%= link_to "ユーザー 新規登録", new_user_registration_path %><br>
   <%= link_to "ユーザー ログイン", new_user_session_path %><br>
   <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %><br>
+  <% if user_signed_in? %>
+    <%= link_to 'マイページへ行く', edit_user_path(current_user) %><br>
+  <% end %>
 </div>
 
 <div class="wraper">

@@ -8,20 +8,6 @@
 
 <%= form_with model: @item, id: "new_item" , url: items_path, local: true do |f| %>
 
-
-<div class="listing-form-box">
-  <div class="listing-product-detail__category">
-    <%= f.label '性別', class: 'listing-default__label' %>
-    <span class="listing-default--require">必須</span>
-      <div class='listing-select-wrapper'>
-        <div class='listing-select-wrapper__box'>
-          <%= f.select :gender, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
-          <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
-        </div>
-      </div>
-  </div>
-</div>
-
 <div id="image-list">
 </div>
   <div class="table">
@@ -69,24 +55,20 @@
       <%= f.text_field :info_size, class:"box", id:"info_size", maxlength:"40" %><br>
     </div>
     <div class="table_l">
-      性別
+      カテゴリー
     </div>
     <div class="table_r">
+      <div class="listing-form-box">
+        <div class="listing-product-detail__category">
 
-      
-
-    </div>
-    <div class="table_l">
-      カテゴリー１
-    </div>
-    <div class="table_r">
-      
-    </div>
-    <div class="table_l">
-      カテゴリー２
-    </div>
-    <div class="table_r">
-
+          <div class='listing-select-wrapper'>
+            <div class='listing-select-wrapper__box'>
+              <%= f.select :gender, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
+              <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="table_l">
       販売価格
