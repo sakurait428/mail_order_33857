@@ -30,7 +30,10 @@
       <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%>
     </div>
       <div class="item_title">
-      <%= image_tag "/assets/logo/detail-btn.jpg" %><br>
+        <%= form_with url: add_item_path(item_id: @item.id, cart_id: params[:cart_id], user_id: current_user.id), local: true do |f| %>
+          <%= select_tag :quantity, options_for_select((1..10).to_a) %><br>
+          <%= f.submit "カートに入れる" %>
+        <% end %><br>
       <%= image_tag "/assets/logo/detail-btn02.jpg" %>
     </div>
   </div>
@@ -74,4 +77,5 @@
 </div>
 
 <div class="wrapper">
+
 </div>

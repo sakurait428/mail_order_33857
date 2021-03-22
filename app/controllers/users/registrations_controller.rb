@@ -15,14 +15,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    if user_signed_in?
+      card = Card.find_by(user_id: current_user.id)
+    end
+ 
+    redirect_to new_card_path and return unless card.present?
+ 
+    customer = Payjp::Customer.retrieve(card.customer_token)
+    @card = customer.cards.first
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+
 
   # DELETE /resource
   # def destroy
@@ -38,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -59,5 +66,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  #必須  更新（編集の反映）時にパスワード入力を省く
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
+
+  def after_update_path_for(resource)
+    root_path
+   end
+
+
 
 end

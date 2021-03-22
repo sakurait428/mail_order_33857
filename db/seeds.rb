@@ -80,3 +80,5 @@ end
 ['ウォレット', 'ネックレス', 'リング', 'キーケース','ブレスレット','ストール','ベルト','ヘッドウェア','アイウェア','その他'].each do |name|
   accessory.children.create(name: name)
 end 
+
+

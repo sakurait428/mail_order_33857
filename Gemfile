@@ -69,3 +69,5 @@ gem 'image_processing', '~> 1.2'
 
 # カテゴリ作成
 gem 'ancestry'
+
+gem 'payjp'

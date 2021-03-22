@@ -24,16 +24,12 @@
 <div class="wrapper">
   <div>
       <% if admin_signed_in? %>管理者でログインしています ID:<%= current_admin.id %>
-    <% else %>
-      ログインしていません
     <% end %>
   </div>
 </div>
 
 <div class="wrapper">
     <% if user_signed_in? %>ユーザーでログインしています ID:<%= current_user.id %>
-  <% else %>
-    ログインしていません
   <% end %>
 </div>
 
@@ -44,10 +40,18 @@
   <%= link_to "出品ページ", new_item_path %><br>
   <%= link_to "カテゴリ追加", new_category_path %><br>
   <%= link_to "カテゴリ一覧", categories_path %><br>
+  <%= link_to "カート一覧", cart_path(current_cart.id) %><br>
+  <%= link_to "購入情報", purchase_record_path %><br>
+  <%= link_to "管理者用 購入情報", purchase_record_admin_path %><br>
+  
+  
   <br>
   <%= link_to "ユーザー 新規登録", new_user_registration_path %><br>
   <%= link_to "ユーザー ログイン", new_user_session_path %><br>
   <%= link_to "ユーザー ログアウト", destroy_user_session_path, method: :delete %><br>
+  <% if user_signed_in? %>
+    <%= link_to 'マイページへ行く', edit_user_registration_path %><br>
+  <% end %>
 </div>
 
 <div class="wraper">

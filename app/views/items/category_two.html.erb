@@ -5,17 +5,24 @@
     <%= link_to @category.root.name, item_category_one_path(id: @category.root.id), class: :"blue" %> > 
     <%= link_to @category.name, item_category_two_path(id: @category.id), class: :"blue" %> > 
   </div>
+  <h1 class="page-title "><%= @category.name %></h1>
 </div>
 
+<div class="wrapper">
+  <div class="category_items">
+    <% @items.each do |item| %>
+      <% if item.category.parent.id == @params.to_i %>
+        <div class="category_item">
+          <% item.images.first(1).each do |image| %>
+            <%= link_to item_path(item.id) do %>
+                <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
+            <% end %>
+          <% end %>
+          <%= item.category.name %><br>
+          <%= item.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<% @items.each do |item| %>
-  <% if item.category.parent.id == @params.to_i %>
-    <%= item.category.name %><br>
-    <%= item.name %><br>
-    <% item.images.first(1).each do |image| %>
-       <%= link_to item_path(item.id) do %>
-         <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
-       <% end %>
-    <% end %><br><br>
-  <% end %>
-<% end %>

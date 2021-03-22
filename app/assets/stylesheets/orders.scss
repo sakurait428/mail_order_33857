@@ -1,0 +1,32 @@
+.order_table {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order_tab_l {
+ width: 30%;
+ padding: 10px;
+ margin-bottom: 10px;
+ background-color: #f8f8f8;
+ border-left: #ddd 1px solid;
+ border-bottom: #ddd 1px solid;
+}
+
+.order_tab_r {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: #ddd 1px solid;
+}
+
+.order_btn {
+  margin: 20px 0 80px;
+}
+
+#order_pay_type {
+  width: 40%;
+  border: #ddd 1px solid;
+  margin-right: 5px;
+  padding: 2px 3px;
+}

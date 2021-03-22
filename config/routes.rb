@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+  get 'cards/new'
   root to: 'items#index'
   get 'item_category_one', to: 'items#category_one'
   get 'item_category_two', to: 'items#category_two'
   get 'item_category_three', to: 'items#category_three'
+  get 'purchase_record', to: 'items#purchase_record'
+  get 'purchase_record_admin', to: 'items#purchase_record_admin'
 
   resources :items do
     collection do
@@ -12,6 +16,15 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :carts, only: [:show] do
+    resources :orders, only: [:index, :new, :create]
+  end
+
+  resources :cards, only: [:new, :create]
+
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
   
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',

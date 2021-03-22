@@ -1,0 +1,67 @@
+<div class="wrapper">
+  <div class="pan">ホーム>オンラインショップ>カート</div>
+  <% if @cart_items.length == 0 %>
+    <h1 class="page-title ">お客様のカートに商品はありません</h1>
+  <% else %>
+    <h1 class="page-title ">
+      ショッピングカート<% flash.each do |key, value| %><%= content_tag(:span, value, class: key) %>
+      <% end %>
+    </h1>
+  <% end %>
+</div>
+
+<% if CartItem.exists?(cart_id: current_cart.id) == true %>
+<div class="wrapper">
+  <div class="cart_table">
+    <div class="ct_1 ct_top">削除</div>
+    <div class="ct_2 ct_top">商品写真</div>
+    <div class="ct_3 ct_top">商品名</div>
+    <div class="ct_4 ct_top">単価(税込み)</div>
+    <div class="ct_5 ct_top">数量</div>
+    <div class="ct_6 ct_top">小計</div>
+
+<% @sum = 0 %>
+<% @cart_items.each do |cart_item| %>
+    <div class="ct_1 blue">
+      <%= link_to "削除", delete_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]), method: :delete %>
+    </div>
+    <div class="ct_2">
+      <% cart_item.item.images.first(1).each do |image| %>
+      <%= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
+        <%= image_tag image.variant(resize: '100x100') %>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="ct_3 cart-name">
+      <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
+      <%= cart_item.item.category.name %>
+    </div>
+    <div class="ct_4"><%= cart_item.item.price.to_s(:delimited) %>円</div>
+    <div class="ct_5">
+      <%= form_with url: update_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]),local: true do |f| %>
+        数量：<%= f.text_field :quantity, maxlength:"2", value: cart_item.quantity %>
+        <br>
+        <%= f.submit "変更する"  %>
+      <% end %>
+    </div>
+    <div class="ct_6">
+      <%= (cart_item.item.price * cart_item.quantity).to_s(:delimited) %>円
+      <% @sum += (cart_item.item.price * cart_item.quantity) %>
+    </div>
+    <% end %>
+    <div class="ct_7">送料</div>
+    <div class="ct_8">800円</div>
+    <div class="ct_7">合計</div>
+    <div class="ct_8"><%= (@sum + 800).to_s(:delimited) %>円</div>
+  </div>
+</div>
+
+
+<div class="wrapper">
+<p class="top_space30 text_center">上記内容でよろしければ「購入手続きへ」ボタンをクリックしてください。</p>
+<p class="top_space30 wrapper">
+  <%= link_to image_tag("/assets/logo/purchase.gif"), new_cart_order_path(params[:id], :total_price => (@sum + 800) ), class:"cart_btn" %>
+</p>
+</div>
+
+<% end %>
