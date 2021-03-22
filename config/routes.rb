@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  root to: 'items#index'
+
+  get 'admin', to: 'admins#index'
   get 'users/show'
   get 'cards/new'
-  root to: 'items#index'
   get 'item_category_one', to: 'items#category_one'
   get 'item_category_two', to: 'items#category_two'
   get 'item_category_three', to: 'items#category_three'

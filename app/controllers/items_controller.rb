@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :authenticate_admin!, only: [:new, :create, :destroy]
+
   def index
     @items = Item.all.order("created_at DESC")
     @cart_items = current_cart.cart_items
@@ -39,6 +41,13 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path
     end
   end
 
