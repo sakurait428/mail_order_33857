@@ -40,6 +40,7 @@
         <span class="mini">在庫数：<%= @item.stock_quantity %>個</span>
       <% end %>
     </div>
+    
       <div class="item_title">
         <% if user_signed_in? && (@item.stock_quantity >= 1) %>
           <%= form_with url: add_item_path(item_id: @item.id, cart_id: params[:cart_id], user_id: current_user.id, stock_quantity: @item.stock_quantity), local: true do |f| %>
