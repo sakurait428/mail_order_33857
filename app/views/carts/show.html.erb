@@ -32,13 +32,18 @@
       <% end %>
       <% end %>
     </div>
-    <div class="ct_3 cart-name">
-      <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
-      <%= cart_item.item.category.name %>
+    <div class="ct_3">
+      <span class="cart-name"><%= link_to cart_item.item.name, item_path(cart_item.item.id) %></span><br>
+      <span class="cart-name"><%= cart_item.item.category.name %></span><br>
+      <span class="mini">在庫：<%= cart_item.item.stock_quantity %>個</span>
     </div>
     <div class="ct_4"><%= cart_item.item.price.to_s(:delimited) %>円</div>
     <div class="ct_5">
-      <%= form_with url: update_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]),local: true do |f| %>
+      <%= form_with url: update_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]),class:"text_center", local: true do |f| %>
+      <% if cart_item.quantity > cart_item.item.stock_quantity %>
+        <% @order_btn = false %>
+        <span class="red bold mini">在庫が足りません</span><br>
+      <% end %>
         数量：<%= f.text_field :quantity, maxlength:"2", value: cart_item.quantity %>
         <br>
         <%= f.submit "変更する"  %>
@@ -58,10 +63,12 @@
 
 
 <div class="wrapper">
-<p class="top_space30 text_center">上記内容でよろしければ「購入手続きへ」ボタンをクリックしてください。</p>
-<p class="top_space30 wrapper">
-  <%= link_to image_tag("/assets/logo/purchase.gif"), new_cart_order_path(params[:id], :total_price => (@sum + 800) ), class:"cart_btn" %>
-</p>
+  <% if @order_btn != false %>
+    <p class="top_space30 text_center">上記内容でよろしければ「購入手続きへ」ボタンをクリックしてください。</p>
+    <p class="top_space30 wrapper">
+      <%= link_to image_tag("/assets/logo/purchase.gif"), new_cart_order_path(params[:id], :total_price => (@sum + 800) ), class:"cart_btn" %>
+    </p>
+  <% end %>
 </div>
 
 <% end %>

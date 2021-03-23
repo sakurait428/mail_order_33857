@@ -3,101 +3,111 @@
     <h1 class="page-title ">お届け先の指定</h1>
 </div>
 
-<div class="wrapper">
 <%= form_with model: @order, url: cart_orders_path(@cart.id),local: true do |f| %>
-<div class="order_table">
-  <div class="order_tab_l">
-    <%= f.label :氏名 %>
+  <div class="wrapper">
+    <div class="order_table">
+      <div class="order_tab_l">
+        <%= f.label :氏名 %>
+      </div>
+      <div class="order_tab_r">
+        <% user_name = current_user.last_name + " " + current_user.first_name %>
+        <%= f.text_field :name, value: user_name, class:"box40" %>
+      </div>
+      <div class="order_tab_l">
+        <%= f.label :郵便番号 %>
+      </div>
+      <div class="order_tab_r">
+        <%= f.text_field :postal_code, value: current_user.postal_code.to_s.insert(3, "-"), class:"box40" %><br>
+      </div>
+      <div class="order_tab_l">
+        <%= f.label :住所 %>
+      </div>
+      <div class="order_tab_r">
+        <% user_address = current_user.prefecture.name + current_user.city + current_user.block %>
+        <%= f.text_area :address, value: user_address, rows: 3, cols: 40, class:"box60" %>
+      </div>
+      <div class="order_tab_l">
+        <%= f.label :メールアドレス %>
+      </div>
+      <div class="order_tab_r">
+        <%= f.email_field :email, value: current_user.email, class:"box40" %>
+      </div>
+      <div class="order_tab_l">
+        <%= f.label :電話番号 %>
+      </div>
+      <div class="order_tab_r">
+        <%= f.telephone_field :phone_number, value: current_user.phone_number, class:"box40" %>
+      </div>
+      <div class="order_tab_l">
+        <%= f.label :お支払い方法 %>
+      </div>
+      <div class="order_tab_r">
+        【カード番号】
+        <br>
+        <%= "**** **** **** " + @card[:last4] %>
+        <br>
+        【有効期限】
+        <br>
+        <%= @card[:exp_month] %>
+        /
+        <%= @card[:exp_year] %><br>
+      </div>
+    </div>
   </div>
-  <div class="order_tab_r">
-    <% user_name = current_user.last_name + " " + current_user.first_name %>
-    <%= f.text_field :name, value: user_name, class:"box40" %>
-  </div>
-  <div class="order_tab_l">
-    <%= f.label :郵便番号 %>
-  </div>
-  <div class="order_tab_r">
-    <%= f.text_field :postal_code, value: current_user.postal_code.to_s.insert(3, "-"), class:"box40" %><br>
-  </div>
-  <div class="order_tab_l">
-    <%= f.label :住所 %>
-  </div>
-  <div class="order_tab_r">
-    <% user_address = current_user.prefecture.name + current_user.city + current_user.block %>
-    <%= f.text_area :address, value: user_address, rows: 3, cols: 40, class:"box60" %>
-  </div>
-  <div class="order_tab_l">
-    <%= f.label :メールアドレス %>
-  </div>
-  <div class="order_tab_r">
-    <%= f.email_field :email, value: current_user.email, class:"box40" %>
-  </div>
-  <div class="order_tab_l">
-    <%= f.label :電話番号 %>
-  </div>
-  <div class="order_tab_r">
-    <%= f.telephone_field :phone_number, value: current_user.phone_number, class:"box40" %>
-  </div>
-  <div class="order_tab_l">
-    <%= f.label :お支払い方法 %>
-  </div>
-  <div class="order_tab_r">
-    【カード番号】
-     <br>
-     <%= "**** **** **** " + @card[:last4] %>
-     <br>
-     【有効期限】
-     <br>
-     <%= @card[:exp_month] %>
-     /
-     <%= @card[:exp_year] %><br>
-  </div>
-<br>
-  <div class="box_center">
-    <%= f.submit '注文を確定する', class:"order_btn" %>
-  </div>
-</div>
-<% end %>
-</div>
 
-<div class="wrapper">
-  <div class="cart_table">
-    <div class="ct_1 ct_top">削除</div>
-    <div class="ct_2 ct_top">商品写真</div>
-    <div class="ct_3 ct_top">商品名</div>
-    <div class="ct_4 ct_top">単価(税込み)</div>
-    <div class="ct_5 ct_top">数量</div>
-    <div class="ct_6 ct_top">小計</div>
+  <div class="wrapper top_space60">
+    <div class="cart_table">
+      <div class="ct_1 ct_top">削除</div>
+      <div class="ct_2 ct_top">商品写真</div>
+      <div class="ct_3 ct_top">商品名</div>
+      <div class="ct_4 ct_top">単価(税込み)</div>
+      <div class="ct_5 ct_top">数量</div>
+      <div class="ct_6 ct_top">小計</div>
 
-<% @sum = 0 %>
-<% @cart.cart_items.each do |cart_item| %>
-    <div class="ct_1 blue">
-      <%= link_to "削除", delete_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]), method: :delete %>
-    </div>
-    <div class="ct_2">
-      <% cart_item.item.images.first(1).each do |image| %>
-      <%= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
-        <%= image_tag image.variant(resize: '100x100') %>
-      <% end %>
-      <% end %>
-    </div>
-    <div class="ct_3">
-      <span class="cart-name"><%= link_to cart_item.item.name, item_path(cart_item.item.id) %></span><br>
-      <span class="cart-name"><%= cart_item.item.category.name %></span><br>
-      <span class="mini">在庫：<%= cart_item.item.stock_quantity %>個</span>
-    </div>
-    <div class="ct_4"><%= cart_item.item.price.to_s(:delimited) %>円</div>
+      <% @sum = 0 %>
+      <% @cart.cart_items.each do |cart_item| %>
+      <div class="ct_1 blue">
+        <%= link_to "削除", delete_item_path(:item_id => cart_item.item.id, :cart_id => params[:cart_id]), method: :delete %>
+      </div>
+      <div class="ct_2">
+        <% cart_item.item.images.first(1).each do |image| %>
+          <%= link_to  item_path(cart_item.item.id) , class: "cart-link" do %>
+            <%= image_tag image.variant(resize: '100x100') %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="ct_3">
+        <span class="cart-name"><%= link_to cart_item.item.name, item_path(cart_item.item.id) %></span><br>
+        <span class="cart-name"><%= cart_item.item.category.name %></span><br>
+        <span class="mini">在庫：<%= cart_item.item.stock_quantity %>個</span>
+      </div>
+      <div class="ct_4"><%= cart_item.item.price.to_s(:delimited) %>円</div>
     <div class="ct_5">
-      数量：<%= cart_item.quantity %>
+      <% if cart_item.quantity > cart_item.item.stock_quantity %>
+        <% @order_btn = false %>
+        <span class="red bold mini">在庫が足りません</span>
+      <% else %>
+        <span>数量：<%= cart_item.quantity %></span>
+      <% end %>
     </div>
-    <div class="ct_6">
-      <%= (cart_item.item.price * cart_item.quantity).to_s(:delimited) %>円
-      <% @sum += (cart_item.item.price * cart_item.quantity) %>
+      <div class="ct_6">
+        <%= (cart_item.item.price * cart_item.quantity).to_s(:delimited) %>円
+        <% @sum += (cart_item.item.price * cart_item.quantity) %>
+      </div>
+      <% end %>
+      <div class="ct_7">送料</div>
+      <div class="ct_8">800円</div>
+      <div class="ct_7">合計</div>
+      <div class="ct_8"><%= (@sum + 800).to_s(:delimited) %>円</div>
     </div>
+    <% if @order_btn == false %>
+      <div class="top_space30 wrapper">
+        <%= link_to "カートに戻る", cart_path(current_cart.id), class:"black_btn_a" %>
+      </div>
+    <% else %>
+      <div class="top_space30 wrapper text_center">
+        <%= f.submit '注文を確定する', class:"black_btn" %>
+      </div>
     <% end %>
-    <div class="ct_7">送料</div>
-    <div class="ct_8">800円</div>
-    <div class="ct_7">合計</div>
-    <div class="ct_8"><%= (@sum + 800).to_s(:delimited) %>円</div>
   </div>
-</div>
+<% end %>
