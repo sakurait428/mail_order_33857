@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_105040) do
     t.text "info_size", null: false
     t.string "gender", null: false
     t.integer "category_id", null: false
+    t.integer "stock_quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

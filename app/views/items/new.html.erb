@@ -28,53 +28,51 @@
       商品名
     </div>
     <div class="table_r">
-      <%= f.text_field :name, class:"box", id:"item-name", maxlength:"40" %><br>
+      <%= f.text_field :name, class:"box60", id:"item-name", maxlength:"40" %><br>
     </div>
     <div class="table_l">
       商品の説明
     </div>
     <div class="table_r">
-      <%= f.text_field :info_product, class:"box", id:"info_product", maxlength:"40" %><br>
+      <%= f.text_area :info_product, rows:"4",class:"box60", id:"info_product", maxlength:"40" %><br>
     </div>
     <div class="table_l">
       ブランド
     </div>
     <div class="table_r">
-      <%= f.text_field :info_brand, class:"box", id:"info_brand", maxlength:"40" %><br>
+      <%= f.text_field :info_brand, class:"box60", id:"info_brand", maxlength:"40" %><br>
     </div>
     <div class="table_l">
       素材
     </div>
     <div class="table_r">
-      <%= f.text_field :info_material, class:"box", id:"info_material", maxlength:"40" %><br>
+      <%= f.text_field :info_material, class:"box60", id:"info_material", maxlength:"40" %><br>
     </div>
     <div class="table_l">
       サイズ
     </div>
     <div class="table_r">
-      <%= f.text_field :info_size, class:"box", id:"info_size", maxlength:"40" %><br>
+      <%= f.text_field :info_size, class:"box60", id:"info_size", maxlength:"40" %><br>
     </div>
     <div class="table_l">
       カテゴリー
     </div>
     <div class="table_r">
-      <div class="listing-form-box">
-        <div class="listing-product-detail__category">
-
-          <div class='listing-select-wrapper'>
-            <div class='listing-select-wrapper__box'>
-              <%= f.select :gender, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
-              <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
-            </div>
-          </div>
-        </div>
+      <div class="listing-product-detail__category">
+        <%= f.select :gender, @category_parent_array, {}, {class: 'box20', id: 'parent_category'} %>
       </div>
     </div>
     <div class="table_l">
       販売価格
     </div>
     <div class="table_r">
-      <%= f.text_field :price, class:"box", id:"item-price", maxlength:"40" %><br>
+      <%= f.text_field :price, class:"box20", id:"item-price", maxlength:"40" %>円<br>
+    </div>
+    <div class="table_l">
+      出品数
+    </div>
+    <div class="table_r">
+      <%= f.text_field :stock_quantity, class:"box20", id:"stock-quantity", maxlength:"4" %>個<br>
     </div>
   </div>
 

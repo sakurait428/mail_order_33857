@@ -1,6 +1,10 @@
 <div class="wrapper">
   <div class="pan">ホーム > オンラインショップ > 注文履歴</div>
-  <h1 class="page-title ">注文履歴</h1>
+  <% if @orders.length == 0 %>
+    <h1 class="page-title ">注文履歴はありません</h1>
+  <% else %>
+    <h1 class="page-title ">注文履歴</h1>
+  <% end %>
 </div>
 
 <div class="wrapper">

@@ -6,6 +6,10 @@ class OrdersController < ApplicationController
   end
 
   def new
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(user_id: current_user.id)
+    redirect_to new_card_path and return unless card.present?
+    
     @cart = current_cart
     @order = Order.new
     total_price =params[:total_price].to_s
@@ -35,8 +39,18 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = Order.new(order_params)
     @order.add_items(current_cart)
+    
+    current_cart.cart_items.each do |item|
+
+      order_item = Item.find(item.item.id)
+
+      quantity = item.item.stock_quantity -= item.quantity
+      order_item.update(stock_quantity: quantity)
+    end
+    
     respond_to do |format|
       if @order.save
       	Cart.destroy(session[:cart_id])

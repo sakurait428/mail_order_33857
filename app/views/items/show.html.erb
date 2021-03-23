@@ -22,16 +22,27 @@
   </div>
 </div>
 
+<% if request.referer.include?('/items/') %>
+  <h3 class="wrapper red text_center top_space30">
+    <% flash.each do |key, value| %><%= content_tag(:span, value, class: key) %><% end %>
+  </h3>
+<% end %>
+
 <div class="wrapper">
   <div class="item_title_container">
     <div class="item_title">
       <%= @item.info_brand%><br>
       <span class="item_price"><%= @item.name%></span><br>
-      <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%>
+      <span class="mini">販売価格：</span>￥<%= @item.price.to_s(:delimited)%><br>
+      <% if @item.stock_quantity == 0 %>
+        <span class="red bold">SOLDOUT</span>
+      <% else %>
+        <span class="mini">在庫数：<%= @item.stock_quantity %>個</span>
+      <% end %>
     </div>
       <div class="item_title">
-        <% if user_signed_in? %>
-          <%= form_with url: add_item_path(item_id: @item.id, cart_id: params[:cart_id], user_id: current_user.id), local: true do |f| %>
+        <% if user_signed_in? && (@item.stock_quantity >= 1) %>
+          <%= form_with url: add_item_path(item_id: @item.id, cart_id: params[:cart_id], user_id: current_user.id, stock_quantity: @item.stock_quantity), local: true do |f| %>
             <%= select_tag :quantity, options_for_select((1..10).to_a) %><br>
             <%= f.submit "カートに入れる" %>
           <% end %>

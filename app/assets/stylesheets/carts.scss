@@ -73,12 +73,11 @@
 .ct_5 {
   width: 15%;
   padding: 10px;
-  text-align: right;
   border-right: #ddd 1px solid;
   border-bottom: #ddd 1px solid;
   display: flex;
+  justify-content: flex-end;
   align-items :center;
-  justify-content: center;
 }
 
 .ct_6 {

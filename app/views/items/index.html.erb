@@ -48,8 +48,10 @@
           <% end %>
             ￥<%= item.price.to_s(:delimited)%>
         </p>
+        <% if item.stock_quantity == 0 %>
+          <p class="red bold">SOLDOUT</p>
+        <% end %>
       </div>
-    
   <% end %>
 </div>
 
