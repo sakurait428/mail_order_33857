@@ -180,6 +180,34 @@ header {
   margin: 20px auto;
 }
 
+.white_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: gray 1px solid;
+  width: 160px;
+  height: 50px;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s;
+}
+
+.white_btn:hover{
+  background-color: #efefef;
+}
+
+.black_btn {
+  border: gray 1px solid;
+  width: 128px;
+  height: 34px;
+  background-color: #222222;
+  color: #FFFFFF;
+  transition: background-color 0.3s;
+}
+
+.black_btn:hover {
+  background-color: #606060;
+}
+
 .box {
   border: #ddd 1px solid;
   margin-right: 5px;

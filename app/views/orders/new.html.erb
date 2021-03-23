@@ -81,9 +81,10 @@
       <% end %>
       <% end %>
     </div>
-    <div class="ct_3 cart-name">
-      <%= link_to cart_item.item.name, item_path(cart_item.item.id) %><br>
-      <%= cart_item.item.category.name %>
+    <div class="ct_3">
+      <span class="cart-name"><%= link_to cart_item.item.name, item_path(cart_item.item.id) %></span><br>
+      <span class="cart-name"><%= cart_item.item.category.name %></span><br>
+      <span class="mini">在庫：<%= cart_item.item.stock_quantity %>個</span>
     </div>
     <div class="ct_4"><%= cart_item.item.price.to_s(:delimited) %>円</div>
     <div class="ct_5">
