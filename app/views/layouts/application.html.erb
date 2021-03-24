@@ -14,22 +14,20 @@
     <header>
       <div><%= link_to image_tag('/assets/logo/logo.jpg'), root_path %></div>
       <li>
-        <ul><%= image_tag "/assets/logo/gnav01.jpg" %></ul>
-        <ul><%= link_to image_tag('/assets/logo/gnav02.jpg'), '#' %></ul>
-        <ul><%= link_to image_tag('/assets/logo/gnav03.jpg'), '#' %></ul>
-        <ul><%= image_tag "/assets/logo/gnav04.jpg" %></ul>
-        <ul><%= link_to image_tag('/assets/logo/gnav05.jpg'), '#' %></ul>
-        <ul><%= link_to image_tag('/assets/logo/gnav06.jpg'), '#' %></ul>
-        <ul><%= link_to image_tag('/assets/logo/gnav07.jpg'), '#' %></ul>
+        <ul><%= link_to "MEN", item_category_one_path(id: 47) ,class: "header_nav_bk" %></ul>
+        <ul><%= link_to "_ITEM", item_category_one_path(id: 47) ,class: "header_nav_wt" %></ul>
+        <ul><%= link_to "WOMEN", item_category_one_path(id: 1) ,class: "header_nav_bk" %></ul>
+        <ul><%= link_to "_ITEM", item_category_one_path(id: 1) ,class: "header_nav_wt" %></ul>
+        <ul><%= link_to "CONTENTS", '#' ,class: "header_nav_bk" %></ul>
       <li>
-      <div>
+      <div class="header_btns">
         <% if user_signed_in? %>
           <%= link_to image_tag('/assets/logo/header-menu03.gif'), destroy_user_session_path, method: :delete, class: "btn" %>
         <% elsif admin_signed_in?%>
           <%= link_to image_tag('/assets/logo/header-menu07.gif'), destroy_admin_session_path, method: :delete, class: "btn" %>
         <% else %>
-        <%= link_to image_tag('/assets/logo/header-menu01.jpg'), new_user_session_path, class: "btn" %><% end %>
-        <%= link_to image_tag('/assets/logo/header-menu02.jpg'), cart_path(current_cart.id), class: "btn" %>
+        <%= link_to "ログイン/会員登録", new_user_session_path, class: "header_btn" %><% end %>
+        <%= link_to "買い物カゴ", cart_path(current_cart.id), class: "header_btn", style:"width: 100px;" %>
       </div>
     </header>
     <%= yield %>
@@ -44,9 +42,7 @@
         <ul>|</ul>
         <ul><%= link_to "サイトマップ", '#' %></ul>
         <ul>|</ul>
-        <ul><%= link_to "ログイン/新規会員登録", '#' %></ul>
-        <ul>|</ul>
-        <ul><%= link_to "特定商取引に関する法律に基づく表記", '#' %></ul>
+        <ul><%= link_to "ログイン/新規会員登録", new_user_session_path %></ul>
         <ul>|</ul>
         <ul><%= link_to "お問い合わせ", '#' %></ul>
       <li>

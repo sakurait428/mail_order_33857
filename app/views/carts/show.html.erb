@@ -66,7 +66,7 @@
   <% if @order_btn != false %>
     <p class="top_space30 text_center">上記内容でよろしければ「購入手続きへ」ボタンをクリックしてください。</p>
     <p class="top_space30 wrapper">
-      <%= link_to image_tag("/assets/logo/purchase.gif"), new_cart_order_path(params[:id], :total_price => (@sum + 800) ), class:"cart_btn" %>
+      <%= link_to "購入手続きへ", new_cart_order_path(params[:id], :total_price => (@sum + 800) ), class:"black_btn_a" %>
     </p>
   <% end %>
 </div>

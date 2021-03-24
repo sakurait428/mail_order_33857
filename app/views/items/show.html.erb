@@ -44,8 +44,8 @@
       <div class="item_title">
         <% if user_signed_in? && (@item.stock_quantity >= 1) %>
           <%= form_with url: add_item_path(item_id: @item.id, cart_id: params[:cart_id], user_id: current_user.id, stock_quantity: @item.stock_quantity), local: true do |f| %>
-            <%= select_tag :quantity, options_for_select((1..10).to_a) %><br>
-            <%= f.submit "カートに入れる" %>
+            <%= select_tag :quantity, options_for_select((1..10).to_a), class:"box40" %><br>
+            <%= f.submit "カートに入れる", class:"black_btn", style:"width: 160px; margin-top:10px" %>
           <% end %>
         <% end %><br>
         <% if admin_signed_in? %>
@@ -68,8 +68,8 @@
 </div>
 
 <div class="wrapper">
-  <div class="relevance_image">
-    <%= image_tag "/assets/logo/relevance-title.jpg" %>
+  <div class="top_space60 border sub_title" >
+    RELEVANCE ITEM
   </div>
 </div>
 

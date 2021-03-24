@@ -25,8 +25,8 @@
       <% end %>
     </div>
 
-    <div class="wrapper">
-      <%= f.submit "ログイン", :class=>"btn_login btn"  %>
+    <div class="wrapper top_space30">
+      <%= f.submit "ログイン", class:"black_btn"  %>
     </div>
   </div>
 <% end %>
@@ -40,6 +40,6 @@
   ログインするだけで、お名前や住所などを入力することなくスムーズにお買い物をお楽しみいただけます。</p>
 
   <div class="wrapper text_center top_space30">
-    <%= link_to image_tag('/assets/logo/header-menu06.gif'), new_user_registration_path, class:"btn"  %>
+    <%= link_to "会員登録をする", new_user_registration_path, class:"black_btn_a" %>
   </div>
 </div>

@@ -85,7 +85,60 @@ header {
   margin: 0 auto;
   max-width: 1000px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+header ul a {
+  font-weight: bold;
+  font-size: 0.9rem;
+  height: 60px;
+  line-height: 35px;
+  padding:10px 15px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.header_nav_bk {
+  color: #202020;
+}
+
+.header_nav_bk:hover {
+  color: #606060;
+  text-decoration: none;
+}
+
+.header_nav_wt {
+  color: #878787;
+}
+
+.header_nav_wt:hover {
+  color: #c8c8c8;
+  text-decoration: none;
+}
+
+.header_btns {
+  display: flex;
+}
+
+.header_btn {
+  text-align: center;
+  margin: 0 5px;
+  display: block;
+  font-size: 0.75rem;
+  -webkit-font-smoothing: antialiased;
+  border: gray 1px solid;
+  width: 130px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #222222;
+  color: #EEEEEE;
+  transition: background-color 0.3s;
+}
+
+.header_btn:hover {
+  background-color: #606060;
+  text-decoration: none;
 }
 
 .page-title {
@@ -98,6 +151,23 @@ header {
 }
 
 /* メイン */
+
+.index_title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight:bold;
+  -webkit-font-smoothing: antialiased;
+  color: #404040;
+  letter-spacing: 2px;
+}
+
+.sub_title {
+  font-size: 1.4rem;
+  -webkit-font-smoothing: antialiased;
+  color: #404040;
+  letter-spacing: 2px;
+  padding-left: 5px;
+}
 
 .entry-title {
   padding: 15px 0;
@@ -199,7 +269,9 @@ header {
   border: gray 1px solid;
   width: 130px;
   height: 40px;
+  -webkit-font-smoothing: antialiased;
   background-color: #222222;
+  font-size: 0.9rem;
   color: #FFFFFF;
   transition: background-color 0.3s;
 }
@@ -213,6 +285,7 @@ header {
   margin: 0 auto;
   display: block;
   font-size: 0.9rem;
+  -webkit-font-smoothing: antialiased;
   border: gray 1px solid;
   width: 130px;
   height: 40px;
@@ -284,4 +357,8 @@ footer {
   max-width: 980px;
   display: flex;
   justify-content: space-between;
+}
+
+footer ul {
+  margin: 0 5px;
 }
