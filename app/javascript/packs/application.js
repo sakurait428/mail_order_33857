@@ -11,6 +11,7 @@ require('../preview')
 require('../category')
 require('jquery')
 require('../card')
+require('../pulldown')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
