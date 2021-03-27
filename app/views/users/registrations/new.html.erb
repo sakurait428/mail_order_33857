@@ -25,7 +25,8 @@
     </div>
     <div class="table_r">
       〒<%= f.text_field :postal_code, class:"box20", id:"postal_code", maxlength:"8" %>
-      <a href="//www.post.japanpost.jp/zipcode/" target="_blank" class="mini">郵便番号検索</a>
+      <a href="//www.post.japanpost.jp/zipcode/" target="_blank" class="mini">郵便番号検索</a><br>
+      (例：101-0051)
     </div>
     <div class="table_l">
       住所
@@ -39,10 +40,11 @@
       <span class="red mini">住所は2つに分けてご記入ください。マンション名は必ず記入してください。</span>
     </div>
     <div class="table_l">
-      電話番号
+      電話番号<br>
     </div>
     <div class="table_r">
-      <%= f.text_field :phone_number, class:"box80", id:"phone_number", autocomplete:"tel-national", maxlength:"40" %>
+      <%= f.text_field :phone_number, class:"box80", id:"phone_number", autocomplete:"tel-national", maxlength:"11" %><br>
+       (例：08012345678)
     </div>
     <div class="table_l">
       メールアドレス
@@ -63,7 +65,7 @@
           prompt:'--',
           date_separator: '%s'
         },{
-          id:"birth-date",
+
           class:"box"
         }),
       "<span> 年 </span>", "<span> 月 </span>") + "<span> 日 </span>" %>

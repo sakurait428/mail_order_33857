@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :authenticate_admin!, only: [:new, :create, :destroy, :purchase_record_admin]
+  before_action :authenticate_admin!, only: [:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren]
   before_action :transition_login_page, except: [:index, :show, :category_one, :category_two, :category_three,:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren]
 
   def index

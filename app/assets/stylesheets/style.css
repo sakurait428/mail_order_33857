@@ -26,6 +26,10 @@ a:hover {
   text-decoration: underline;
 }
 
+ul {
+  list-style: none;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 980px;
@@ -76,8 +80,12 @@ a:hover {
   margin-top: 30px;
 }
 
-.error-alert ul {
-  list-style: none;
+.error-alert {
+  padding-bottom: 20px;
+}
+
+.error-message {
+  padding: 5px;
 }
 
 /* ヘッダー */
@@ -89,10 +97,6 @@ header {
   max-width: 980px;
   display: flex;
   align-items: center;
-}
-
-header ul {
-  list-style: none;
 }
 
 .header_a {
@@ -489,7 +493,6 @@ footer {
 
 footer ul {
   display: flex;
-  list-style: none;
 }
 
 footer li {
