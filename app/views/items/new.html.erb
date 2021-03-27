@@ -6,7 +6,7 @@
 
 <div class ="wrapper">
 
-<%= form_with model: @item, id: "new_item" , url: items_path, local: true do |f| %>
+<%= form_with model: @item, id: "new_item" , url: '/items/new', local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
 <div id="image-list">
 </div>

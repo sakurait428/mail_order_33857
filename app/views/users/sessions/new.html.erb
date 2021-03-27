@@ -6,6 +6,11 @@
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div class="wrapper text_center red top_space30">
+  <%= flash[:alert] %>
+</div>
+
 <div class="wrapper">
   <div class="login_table">
     <div class="login_tb_l">
