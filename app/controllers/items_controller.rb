@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
-  before_action :authenticate_admin!, only: [:new, :create, :destroy]
+  before_action :authenticate_admin!, only: [:new, :create, :destroy, :purchase_record_admin]
+  before_action :transition_login_page, except: [:index, :show, :category_one, :category_two, :category_three,:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -36,6 +37,12 @@ class ItemsController < ApplicationController
    end
 
   def create
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -84,6 +91,12 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :info_product, :price, :info_brand, :info_material, :info_size, :gender, :category_id, :stock_quantity, images: [])
+  end
+
+  def transition_login_page
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
 end

@@ -1,4 +1,7 @@
 class CardsController < ApplicationController
+
+  before_action :transition_login
+
   def new
   end
 
@@ -19,6 +22,14 @@ class CardsController < ApplicationController
       else
         redirect_to "new"
       end
+  end
+
+  private
+
+  def transition_login
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
 end

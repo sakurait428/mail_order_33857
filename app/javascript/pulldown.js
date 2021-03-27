@@ -1,19 +1,11 @@
 function pullDown() {
 
-  const pullDownButton = document.getElementById("lists")
-  const pullDownParents = document.getElementById("pull_down")
   const pullDownButtonLady = document.getElementById("lady")
   const pullDownParentsLady = document.getElementById("lady_down")
   const pullDownButtonMen = document.getElementById("men")
   const pullDownParentsMen = document.getElementById("men_down")
-
-  pullDownButton.addEventListener('mouseover', function() {
-      pullDownParents.setAttribute("style", "display:block;")
-  })
-
-  pullDownButton.addEventListener('mouseout', function(){
-    pullDownParents.removeAttribute("style", "display:block;")
-  })
+  const pullDownButton = document.getElementById("lists")
+  const pullDownParents = document.getElementById("pull_down")
 
   pullDownButtonLady.addEventListener('mouseover', function() {
     pullDownParentsLady.setAttribute("style", "display:block;")
@@ -31,6 +23,13 @@ function pullDown() {
     pullDownParentsMen.removeAttribute("style", "display:block;")
   })
 
+  pullDownButton.addEventListener('mouseover', function() {
+    pullDownParents.setAttribute("style", "display:block;")
+  })
+
+  pullDownButton.addEventListener('mouseout', function(){
+  pullDownParents.removeAttribute("style", "display:block;")
+  })
 }
 
 window.addEventListener('load', pullDown)

@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :transition_login
+
   def index
     @orders = Order.includes(:cart_items)
     @carts = Cart.all
@@ -68,6 +70,12 @@ class OrdersController < ApplicationController
 
     def order_params
       params.require(:order).permit(:name, :postal_code, :address, :email, :phone_number).merge(user_id: current_user.id)
+    end
+
+    def transition_login
+      unless user_signed_in?
+        redirect_to new_user_session_path
+      end
     end
 
 end

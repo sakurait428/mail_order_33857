@@ -76,6 +76,10 @@ a:hover {
   margin-top: 30px;
 }
 
+.error-alert ul {
+  list-style: none;
+}
+
 /* ヘッダー */
 
 header {
@@ -153,6 +157,22 @@ header ul {
   transition: background-color 0.3s;
 }
 
+.admin_header_btn {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-size: 0.75rem;
+  -webkit-font-smoothing: antialiased;
+  border: gray 1px solid;
+  width: 130px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #a20d0d;
+  color: #EEEEEE;
+  transition: background-color 0.3s;
+}
+
 .header_btn:hover {
   background-color: #606060;
   text-decoration: none;
@@ -188,6 +208,10 @@ header ul {
 
 .pan {
   padding: 20px 0;
+}
+
+.pan a {
+  color: #0033CC;
 }
 
 /* プルダウン */
@@ -238,12 +262,20 @@ header ul {
   border-left: 36px solid transparent; 
 }
 
+#lady_down a {
+  display: block;
+}
+
 #men_down {
   display: none;
   background-color: #ffffff;
   border-right: 36px solid transparent;
   border-bottom: 86.6025px solid #000000;
   border-left: 36px solid transparent; 
+}
+
+#men_down a {
+  display: block;
 }
 
 /* メイン */
