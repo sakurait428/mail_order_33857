@@ -1,0 +1,19 @@
+.inquiry_controller {
+  padding: 20px 10px;
+  border-top: #DDDDDD 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inquiry_controller h3,p {
+  padding-bottom: 10px;
+}
+
+.inquiry_controller_message {
+  width: 80%;
+}
+
+.inquiry_controller_btn {
+  width: 10%;
+}

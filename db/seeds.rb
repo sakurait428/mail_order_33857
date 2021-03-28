@@ -82,3 +82,18 @@ end
 end 
 
 
+User.create(email: 'aaa@aaa',
+            password: '11111a',
+            last_name: '山田',
+            first_name: '太郎',
+            last_name_kana: 'ヤマダ',
+            first_name_kana: 'タロウ',
+            user_birth_date: '1988-01-01',
+            postal_code: '123-4567',
+            prefecture_id: '14',
+            city: '千代田区神田神保町',
+            block: '1-3-5',
+            phone_number: '08012345678',
+            accepted: "true")
+
+Admin.create(email: 'qqq@qqq', password: '11111a')

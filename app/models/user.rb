@@ -7,20 +7,20 @@ class User < ApplicationRecord
   has_one :card, dependent: :destroy
 
   with_options presence: true do
-    validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
-    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
-    validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
-    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters."}
+    validates :last_name
+    validates :first_name
+    validates :last_name_kana
+    validates :first_name_kana
     validates :user_birth_date
-    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :prefecture_id, numericality: { other_than: 1, message: "を選択してください" }
     validates :city
     validates :block
-    validates :postal_code, format: { with: /\A[0-9]+\z/i, message: "is invalid."}
-    validates :phone_number, format: { with: /\A[0-9]+\z/i, message: "is invalid."}
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "は、ハイフンを含む、半角数字7桁で入力してください"}
+    validates :phone_number, format: { with: /\A[0-9]+\z/, message: ""}, length: { maximum: 11, message: "は、半角数字で入力して下さい" }
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
   end
 
-  validates :accepted, presence: {message: 'を入力してください'}
+  validates :accepted, presence: {message: 'に同意してください'}
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

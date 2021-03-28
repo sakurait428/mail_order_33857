@@ -1,0 +1,12 @@
+<div class="wrapper"  id="men_down">
+  <div class="pull_down_container" id="men">
+    <% Category.all.find(47).children.each do |oya| %>
+      <div class="item_down">
+        <div class="item_down_oya"><%= link_to oya.name, item_category_two_path(id: oya.id) %></div>
+          <% oya.children.each do |ko| %>
+            <div class="item_down_ko"><%= link_to ko.name, item_category_two_path(id: ko.id) %></div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

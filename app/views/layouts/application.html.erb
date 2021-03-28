@@ -12,24 +12,52 @@
 
   <body>
     <header>
-      <div><%= link_to image_tag('/assets/logo/logo.jpg'), root_path %></div>
-      <li>
-        <ul><%= link_to "MEN", item_category_one_path(id: 47) ,class: "header_nav_bk" %></ul>
-        <ul><%= link_to "_ITEM", item_category_one_path(id: 47) ,class: "header_nav_wt" %></ul>
-        <ul><%= link_to "WOMEN", item_category_one_path(id: 1) ,class: "header_nav_bk" %></ul>
-        <ul><%= link_to "_ITEM", item_category_one_path(id: 1) ,class: "header_nav_wt" %></ul>
-        <ul><%= link_to "CONTENTS", '#' ,class: "header_nav_bk" %></ul>
-      <li>
-      <div class="header_btns">
-        <% if user_signed_in? %>
-          <%= link_to image_tag('/assets/logo/header-menu03.gif'), destroy_user_session_path, method: :delete, class: "btn" %>
-        <% elsif admin_signed_in?%>
-          <%= link_to image_tag('/assets/logo/header-menu07.gif'), destroy_admin_session_path, method: :delete, class: "btn" %>
-        <% else %>
-        <%= link_to "ログイン/会員登録", new_user_session_path, class: "header_btn" %><% end %>
-        <%= link_to "買い物カゴ", cart_path(current_cart.id), class: "header_btn", style:"width: 100px;" %>
+      <div class="header_logo">
+        <%= link_to image_tag('/assets/logo/logo.jpg'), root_path %>
       </div>
+
+      <ul class="header_navs">
+        <li><%= link_to "MEN", item_category_one_path(id: 47) ,class: "header_nav_bk header_a" %></li>
+        <li id="men"><%= link_to "_ITEM", item_category_one_path(id: 47) ,class: "header_nav_wt header_a" %><%= render "items/shared/pull_down_men" %></li>
+        <li><%= link_to "WOMEN", item_category_one_path(id: 1) ,class: "header_nav_bk header_a" %></li>
+        <li id="lady"><%= link_to "_ITEM", item_category_one_path(id: 1) ,class: "header_nav_wt header_a" %><%= render "items/shared/pull_down_lady" %></li>
+        <li><%= link_to "CONTENTS", '#' ,class: "header_nav_bk header_a" %></li>
+      </ul>
+
+      <ul class="cart_navs">
+        <li class="cart_nav">
+          <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_btn" %>
+          <% elsif admin_signed_in?%>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "admin_header_btn" %>
+          <% else %>
+          <%= link_to "ログイン/会員登録", new_user_session_path, class: "header_btn" %>
+          <% end %>
+        </li>
+      </ul>
+      <% if user_signed_in? %>
+      <div class="cart_navs" id="lists">
+        <ul>
+          <li class="cart_nav"><%= link_to "買い物カゴ ▼", cart_path(current_cart.id), class: "header_btn wid_100" %></li>
+        </ul>
+        <ul class="hidden" id="pull_down">
+          <li><%= link_to "注文履歴", purchase_record_path, class: "header_btn wid_100" %></li>
+          <li><%= link_to "マイページ", edit_user_registration_path, class: "header_btn wid_100" %></li>
+        </ul>
+      </div>
+      <% elsif admin_signed_in?%>
+        <div class="cart_navs">
+        <ul>
+          <li class="cart_nav"><%= link_to "管理者ページ", admin_path, class: "header_btn wid_100" %></li>
+        </ul>
+      </div>      
+      <% end %>
+
     </header>
+
+
+
+
     <%= yield %>
 
     <div class="border"></div>
@@ -37,15 +65,15 @@
       <div>
         <%= link_to image_tag('/assets/logo/footer-logo.jpg'), root_path %>
       </div>
-      <li class="mini">
-        <ul><%= link_to "当サイトについて", '#' %></ul>
-        <ul>|</ul>
-        <ul><%= link_to "サイトマップ", '#' %></ul>
-        <ul>|</ul>
-        <ul><%= link_to "ログイン/新規会員登録", new_user_session_path %></ul>
-        <ul>|</ul>
-        <ul><%= link_to "お問い合わせ", '#' %></ul>
-      <li>
+      <ul class="mini">
+        <li><%= link_to "当サイトについて", '#' %></li>
+        <li>|</li>
+        <li><%= link_to "サイトマップ", '#' %></li>
+        <li>|</li>
+        <li><%= link_to "ログイン/新規会員登録", new_user_session_path %></li>
+        <li>|</li>
+        <li><%= link_to "お問い合わせ", '#' %></li>
+      </ul>
       <div>
         <%= link_to image_tag('/assets/logo/sns-btn.jpg'), '#', class: "btn" %>
         <%= link_to image_tag('/assets/logo/sns-btn02.jpg'), '#', class: "btn" %>

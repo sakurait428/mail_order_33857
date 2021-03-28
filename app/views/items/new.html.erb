@@ -1,13 +1,13 @@
 <div class="wrapper">
-  <div class="pan">ホーム > オンラインショップ > 商品出品ページ</div>
+  <div class="pan"><%= link_to "ホーム", root_path %> > <%= link_to "管理者ページ", admin_path %> > 商品出品ページ</div>
   <h1 class="page-title ">商品出品ページ</h1>
 </div>
 
 
 <div class ="wrapper">
 
-<%= form_with model: @item, id: "new_item" , url: items_path, local: true do |f| %>
-
+<%= form_with model: @item, id: "new_item" , url: '/items/new', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
 <div id="image-list">
 </div>
   <div class="table">
@@ -22,37 +22,37 @@
       <%= f.file_field :image, name: 'item[images][]', id: 'item_image_5', class:"file_btn" %><br>
       <%= f.file_field :image, name: 'item[images][]', id: 'item_image_6', class:"file_btn" %><br>
       <%= f.file_field :image, name: 'item[images][]', id: 'item_image_7', class:"file_btn" %><br>
-      <%= f.file_field :image, name: 'item[images][]', id: 'item_image_8', class:"file_btn" %><br>
+      <%= f.file_field :image, name: 'item[images][]', id: 'item_image_8', class:"file_btn" %>
     </div>
     <div class="table_l">
       商品名
     </div>
     <div class="table_r">
-      <%= f.text_field :name, class:"box60", id:"item-name", maxlength:"40" %><br>
+      <%= f.text_field :name, class:"box60", id:"item-name", maxlength:"40" %>
     </div>
     <div class="table_l">
       商品の説明
     </div>
     <div class="table_r">
-      <%= f.text_area :info_product, rows:"4",class:"box60", id:"info_product", maxlength:"40" %><br>
+      <%= f.text_area :info_product, rows:"4",class:"box60", id:"info_product", maxlength:"40" %>
     </div>
     <div class="table_l">
       ブランド
     </div>
     <div class="table_r">
-      <%= f.text_field :info_brand, class:"box60", id:"info_brand", maxlength:"40" %><br>
+      <%= f.text_field :info_brand, class:"box60", id:"info_brand", maxlength:"40" %>
     </div>
     <div class="table_l">
       素材
     </div>
     <div class="table_r">
-      <%= f.text_field :info_material, class:"box60", id:"info_material", maxlength:"40" %><br>
+      <%= f.text_field :info_material, class:"box60", id:"info_material", maxlength:"40" %>
     </div>
     <div class="table_l">
       サイズ
     </div>
     <div class="table_r">
-      <%= f.text_field :info_size, class:"box60", id:"info_size", maxlength:"40" %><br>
+      <%= f.text_field :info_size, class:"box60", id:"info_size", maxlength:"40" %>
     </div>
     <div class="table_l">
       カテゴリー
@@ -76,7 +76,7 @@
     </div>
   </div>
 
-<div class="wrapper">
-  <%= f.submit "出品する", :class=>"btn_item"  %>
+<div class="wrapper text_center top_space30">
+  <%= f.submit "出品する", class: "black_btn"  %>
 </div>
 <% end %>
