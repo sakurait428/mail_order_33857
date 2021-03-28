@@ -51,7 +51,7 @@
         <% if admin_signed_in? %>
           <%= link_to "削除", item_path(@item.id), method: :delete, class:"white_btn" %><br>
         <% end %>
-          <%= link_to "お問い合わせ", "#", class:"white_btn" %>
+          <%= link_to "お問い合わせ", new_inquire_path(item_id: @item.id, item_name: @item.name), class:"white_btn" %>
     </div>
   </div>
   <div class="item_product">

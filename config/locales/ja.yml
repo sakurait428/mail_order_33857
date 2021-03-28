@@ -22,6 +22,10 @@ ja:
        category_id: カテゴリー
        stock_quantity: 出品数
        category: カテゴリー
-
-
-      
+     inquiry:
+       name: お名前
+       email: メールアドレス
+       message: お問い合わせ内容
+   time:
+     formats:
+       default: "%Y/%m/%d %H:%M:%S"

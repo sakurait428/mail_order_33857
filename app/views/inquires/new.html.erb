@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="pan"><%= link_to "ホーム", root_path %> > <%= link_to "オンラインショップ", "#" %> > お問い合わせ</div>
+  <h1 class="page-title ">お問い合わせ</h1>
+</div>
+
+
+<div class ="wrapper">
+
+<%= form_with model: @inquiry, url: '/inquires', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+  <div class="table">
+    <div class="table_l">
+      お名前
+      <% if user_signed_in? %>
+        <% name = current_user.last_name + " " + current_user.first_name %>
+      <% else %>
+        <% name = "" %>
+      <% end %>
+    </div>
+    <div class="table_r">
+      <%= f.text_field :name, value: name, class:"box60", id:"item-name", maxlength:"40" %>
+    </div>
+    <div class="table_l">
+      メールアドレス
+      <% if user_signed_in? %>
+        <% email = current_user.email %>
+      <% else %>
+        <% name = "" %>
+      <% end %>
+    </div>
+    <div class="table_r">
+      <%= f.text_field :email, value: email, class:"box60", id:"item-name", maxlength:"40" %>
+    </div>
+    <div class="table_l">
+      お問い合わせ内容
+    </div>
+    <div class="table_r">
+      <%= f.text_area :message, value: "商品ID：#{params[:item_id]} #{params[:item_name]} について", rows:"8",class:"box80", id:"info_product", maxlength:"400" %>
+    </div>
+  </div>
+
+<div class="wrapper text_center top_space30">
+  <%= f.submit "送信する", class: "black_btn"  %>
+</div>
+<% end %>

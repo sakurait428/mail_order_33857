@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="pan"><%= link_to "ホーム", root_path %> > <%= link_to "管理者ページ", admin_path %> > お問い合わせ</div>
+  <h1 class="page-title ">お問い合わせ</h1>
+</div>
+
+<div class="wrapper">
+  <% @inquires.each do |inquiry| %>
+    <div class="inquiry_controller">
+      <div class="inquiry_controller_message">
+        <p class="mini bold" style="color: #878787;"><%= inquiry.created_at.to_s(:datetime_jp) %></p>
+        <h3><%= inquiry.name %> 様</h3>
+        <p>Email : <%= link_to inquiry.email, "mailto:#{inquiry.email}" %></p>
+        <p><%= inquiry.message %></p>
+      </div>
+      <div class="inquiry_controller_btn">
+        <%= link_to "削除", inquire_path(inquiry.id), class:"white_btn",method: :delete, style:"width: 100%;" %>
+      </div>
+    </div>
+  <% end %>
+</div>

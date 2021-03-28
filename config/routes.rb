@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   get 'item_category_three', to: 'items#category_three'
   get 'purchase_record', to: 'items#purchase_record'
   get 'purchase_record_admin', to: 'items#purchase_record_admin'
+  post '/add_item', to: 'carts#add_item'
+  post '/update_item', to: 'carts#update_item'
   post 'items/new', to: 'items#create'
+  delete '/delete_item', to: 'carts#delete_item'
 
   resources :items do
     collection do
@@ -24,10 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :cards, only: [:new, :create]
-
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+  resources :inquires, only: [:index, :destroy, :new, :create]
   
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
