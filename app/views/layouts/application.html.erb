@@ -50,7 +50,13 @@
         <ul>
           <li class="cart_nav"><%= link_to "管理者ページ", admin_path, class: "header_btn wid_100" %></li>
         </ul>
-      </div>      
+      </div>
+      <% else %>
+        <div class="cart_navs">
+        <ul>
+          <li class="cart_nav"><%= link_to "買い物カゴ ▼", new_user_session_path, class: "header_btn wid_100" %></li>
+        </ul>
+      </div>    
       <% end %>
 
     </header>
