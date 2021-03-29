@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'item_category_three', to: 'items#category_three'
   get 'purchase_record', to: 'items#purchase_record'
   get 'purchase_record_admin', to: 'items#purchase_record_admin'
+  get 'site_map', to: 'items#site_map'
   post '/add_item', to: 'carts#add_item'
   post '/update_item', to: 'carts#update_item'
   post 'items/new', to: 'items#create'

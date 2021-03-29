@@ -126,10 +126,11 @@ header {
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .header_logo img {
-  display: block;  
+  display: block; 
 }
 
 .header_navs {
@@ -198,7 +199,7 @@ header {
   width: 15%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   padding-top: 10px;
   height: 60px;
   z-index: 2;
@@ -245,7 +246,7 @@ header {
   height: 400px;
   padding: 20px;
   color: #FFFFFF;
-  background-color: #000000;
+  background-color: #202020;
   z-index:2;
   position: absolute;
   display: flex;
@@ -278,8 +279,8 @@ header {
   display: none;
   background-color: #ffffff;
   border-right: 36px solid transparent;
-  border-bottom: 86.6025px solid #000000;
-  border-left: 36px solid transparent; 
+  border-bottom: 86.6025px solid #202020;
+  border-left: 36px solid transparent;
 }
 
 #lady_down a {
@@ -290,7 +291,7 @@ header {
   display: none;
   background-color: #ffffff;
   border-right: 36px solid transparent;
-  border-bottom: 86.6025px solid #000000;
+  border-bottom: 86.6025px solid #202020;
   border-left: 36px solid transparent; 
 }
 
@@ -299,6 +300,18 @@ header {
 }
 
 /* メイン */
+
+.main_visual {
+  text-align: center;
+  width: 100vw;
+  background-color: #000000;
+  height: 343px;
+}
+
+.main_visual img {
+  width: 980px;
+  height: 343px;
+}
 
 .index_title {
   text-align: center;
@@ -509,10 +522,34 @@ footer {
   justify-content: space-between;
 }
 
-footer ul {
+.footer_nav {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer_nav ul {
+  display: flex;
+  margin: 0 auto;
+}
+
+.footer_nav li {
+  margin: 0 5px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.8rem;
+  width: 100%;
+  flex-flow: column;
+}
+
+.footer_sns {
   display: flex;
 }
 
-footer li {
-  margin: 0 5px;
+.footer_sns img {
+  padding: 5px;
 }

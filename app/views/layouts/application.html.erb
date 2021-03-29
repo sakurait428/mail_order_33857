@@ -65,16 +65,19 @@
       <div>
         <%= link_to image_tag('/assets/logo/footer-logo.jpg'), root_path %>
       </div>
-      <ul class="mini">
-        <li><%= link_to "当サイトについて", '#' %></li>
-        <li>|</li>
-        <li><%= link_to "サイトマップ", '#' %></li>
-        <li>|</li>
-        <li><%= link_to "ログイン/新規会員登録", new_user_session_path %></li>
-        <li>|</li>
-        <li><%= link_to "お問い合わせ", '#' %></li>
-      </ul>
-      <div>
+      <div class="footer_nav">
+        <ul>
+          <li><%= link_to "当サイトについて", '#' %></li>
+          <li>|</li>
+          <li><%= link_to "サイトマップ", '#' %></li>
+          <li>|</li>
+          <li><%= link_to "ログイン/新規会員登録", new_user_session_path %></li>
+          <li>|</li>
+          <li><%= link_to "お問い合わせ", new_inquire_path %></li>
+        </ul>
+        <div class="copyright">© 2021 brilhar All Rights Reserved.</div>
+        </div>
+      <div class="footer_sns">
         <%= link_to image_tag('/assets/logo/sns-btn.jpg'), '#', class: "btn" %>
         <%= link_to image_tag('/assets/logo/sns-btn02.jpg'), '#', class: "btn" %>
         <%= link_to image_tag('/assets/logo/sns-btn03.jpg'), '#', class: "btn" %>

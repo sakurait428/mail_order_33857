@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_admin!, only: [:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren]
-  before_action :transition_login_page, except: [:index, :show, :category_one, :category_two, :category_three,:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren, :item_all]
+  before_action :transition_login_page, only: [:purchase_record]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -89,6 +89,10 @@ class ItemsController < ApplicationController
 
   def purchase_record_admin
     @orders = Order.all.order("created_at DESC")
+  end
+
+  def site_map
+    
   end
 
   private
