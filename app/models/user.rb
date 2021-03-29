@@ -16,10 +16,10 @@ class User < ApplicationRecord
     validates :city
     validates :block
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "は、ハイフンを含む、半角数字7桁で入力してください"}
-    validates :phone_number, format: { with: /\A[0-9]+\z/, message: ""}, length: { maximum: 11, message: "は、半角数字で入力して下さい" }
-    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
+    validates :phone_number, format: { with: /\A[0-9]+\z/, message: "は、半角数字で入力して下さい"}, length: { maximum: 11, message: "は、１１文字以内で入力して下さい" }
   end
 
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }, allow_blank: true
   validates :accepted, presence: {message: 'に同意してください'}
   
   extend ActiveHash::Associations::ActiveRecordExtensions

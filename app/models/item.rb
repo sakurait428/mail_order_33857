@@ -6,7 +6,6 @@ class Item < ApplicationRecord
     validates :info_product
     validates :price
     validates :info_size
-    validates :category_id
     validates :stock_quantity
   end
 
