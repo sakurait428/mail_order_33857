@@ -387,6 +387,15 @@ header {
   transition: 0.5s;
 }
 
+.btns {
+  display: flex;
+  justify-content: center;
+}
+
+.btns div {
+  padding:0 10px;
+}
+
 .btn:hover {
   opacity: 0.7 ;
 }
