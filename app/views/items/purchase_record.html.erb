@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <div class="pan">ホーム > オンラインショップ > 注文履歴</div>
+ <div class="pan entry-title top_margin30">
+   <%= link_to "ホーム", root_path, class: :"blue" %> > 
+   注文履歴</div>
   <% if @orders.length == 0 %>
     <h1 class="page-title ">注文履歴はありません</h1>
   <% else %>

@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_admin!, only: [:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren]
-  before_action :transition_login_page, except: [:index, :show, :category_one, :category_two, :category_three,:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren]
+  before_action :transition_login_page, except: [:index, :show, :category_one, :category_two, :category_three,:new, :create, :destroy, :purchase_record_admin, :get_category_children, :get_category_grandchildren, :item_all]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -56,6 +56,10 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     end
+  end
+
+  def item_all
+    @items = Item.all.order("created_at DESC")
   end
 
   def category_one

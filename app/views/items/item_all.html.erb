@@ -1,27 +1,24 @@
 <div class="wrapper">
   <div class="pan entry-title top_margin30">
     <%= link_to "ホーム", root_path, class: :"blue" %> > 
-    <%= link_to "全商品 一覧", item_all_path, class: :"blue" %> > 
-    <%= link_to @category.root.name, item_category_one_path(id: @category.root.id), class: :"blue" %>
+    全商品 一覧 
   </div>
-    <h1 class="page-title "><%= @category.root.name %></h1>
+    <h1 class="index_title bottom_space30">ＡＬＬ ＩＴＥＭ</h1>
 </div>
 
 <div class="wrapper">
-  <div class="category_items mini">
+  <div class="category_items">
     <% @items.each do |item| %>
-      <% if item.category.root.id == @params.to_i %>
-        <div class="category_item">
+        <div class="category_item mini">
           <% item.images.first(1).each do |image| %>
             <%= link_to item_path(item.id) do %>
-                <%= image_tag image.variant(resize: '300x300'), class:'images bottom_space5' if item.images.attached? %>
+                <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
             <% end %>
-          <% end %>
           <%= item.info_brand %><br>
           <%= item.name %><br>
           <span class="bottom_space5">販売価格：￥<%= item.price.to_s(:delimited)%></span><br>
           <% if item.stock_quantity == 0 %>
-            <span class="red bold">SOLDOUT</span>
+          <span class="red bold">SOLDOUT</span>
           <% end %>
         </div>
       <% end %>
