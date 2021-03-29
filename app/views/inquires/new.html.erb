@@ -35,7 +35,10 @@
       お問い合わせ内容
     </div>
     <div class="table_r">
-      <%= f.text_area :message, value: "商品ID：#{params[:item_id]} #{params[:item_name]} について", rows:"8",class:"box80", id:"info_product", maxlength:"400" %>
+    <% if params[:item_id] != nil %>
+      <% message_value = "商品ID：#{params[:item_id]} #{params[:item_name]} について" %>
+    <% end %>
+      <%= f.text_area :message, value: message_value, rows:"8",class:"box80", id:"info_product", maxlength:"400" %>
     </div>
   </div>
 

@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <div class="pan">ホーム>オンラインショップ>カート</div>
+  <div class="pan entry-title top_margin30">
+  <%= link_to "ホーム", root_path, class: :"blue" %> > 
+  カート</div>
   <% if @cart_items.length == 0 %>
     <h1 class="page-title ">お客様のカートに商品はありません</h1>
   <% else %>

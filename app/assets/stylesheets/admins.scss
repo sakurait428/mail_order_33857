@@ -1,11 +1,12 @@
 .admin_menus {
+  max-width: 980px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .admin_menu {
-  width: 45%;
+  width: 430px;
   margin: 10px 10px 30px 10px;
   border: silver 1px solid;
   border-radius: 5px;

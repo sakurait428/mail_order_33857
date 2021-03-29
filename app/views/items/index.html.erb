@@ -1,8 +1,8 @@
 <div class="main_visual">
-  <%= image_tag "/assets/main/kloshar-top-1370-480.jpg" %>
+  <%= image_tag "/assets/main/main_visual.jpg" %>
 </div>
 
-<div class="wraper">
+<div class="wrapper">
   <div class="index_title top_space30">
     ＳＨＯＰ ＮＥＷＳ
   </div>
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="wraper">
+<div class="wrapper">
   <div class="index_title top_space30">
     ＮＥＷ ＩＴＥＭ
   </div>
@@ -41,16 +41,23 @@
             <%= image_tag image.variant(resize: '300x300'), class:'images' if item.images.attached? %>
           <% end %>
         <% end %>
-        <p>
+        <p class="mini">
           <%= link_to item_path(item.id) do %>
+            <%= item.info_brand %><br>
             <%= item.name%><br>
           <% end %>
-            ￥<%= item.price.to_s(:delimited)%>
+            販売価格：￥<%= item.price.to_s(:delimited)%>
         </p>
         <% if item.stock_quantity == 0 %>
-          <p class="red bold">SOLDOUT</p>
+          <p class="red bold mini">SOLDOUT</p>
         <% end %>
       </div>
   <% end %>
+</div>
+
+<div class="wrapper">
+  <div class="top_space30">
+    <%= link_to "> ＭＯＲＥ", item_all_path, class:"more_btn box_center" %>
+  </div>
 </div>
 

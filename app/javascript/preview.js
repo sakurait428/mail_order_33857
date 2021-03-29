@@ -16,20 +16,23 @@ if (document.URL.match( /items/ ) || document.URL.match( /edit/ )) {
       // 生成したHTMLの要素をブラウザに表示させる
       imageElement.appendChild(blobImage)
       ImageList.appendChild(imageElement)
-
-
     }
 
     document.getElementById('item_image_1').addEventListener('change', (e) => {
       let file = e.target.files[0];
       let blob = window.URL.createObjectURL(file);
 
+      const imageContent = document.getElementById('item_image_1');
+      if (imageContent){
+        imageContent.remove();
+      }
+
       createImageHTML(blob)
     });
     document.getElementById('item_image_2').addEventListener('change', (e) => {
       let file = e.target.files[0];
       let blob = window.URL.createObjectURL(file);
-
+      
       createImageHTML(blob)
     });
     document.getElementById('item_image_3').addEventListener('change', (e) => {
