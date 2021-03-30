@@ -4,6 +4,8 @@ function pullDown() {
   const pullDownParentsLady = document.getElementById("lady_down")
   const pullDownButtonMen = document.getElementById("men")
   const pullDownParentsMen = document.getElementById("men_down")
+  const pullDownButtonContents = document.getElementById("contents")
+  const pullDownParentsContents = document.getElementById("contents_down")
   const pullDownButton = document.getElementById("lists")
   const pullDownParents = document.getElementById("pull_down")
 
@@ -21,6 +23,14 @@ function pullDown() {
 
   pullDownButtonMen.addEventListener('mouseout', function(){
     pullDownParentsMen.removeAttribute("style", "display:block;")
+  })
+
+  pullDownButtonContents.addEventListener('mouseover', function() {
+    pullDownParentsContents.setAttribute("style", "display:block;")
+  })
+
+  pullDownButtonContents.addEventListener('mouseout', function(){
+    pullDownParentsContents.removeAttribute("style", "display:block;")
   })
 
   pullDownButton.addEventListener('mouseover', function() {

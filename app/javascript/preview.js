@@ -22,11 +22,6 @@ if (document.URL.match( /items/ ) || document.URL.match( /edit/ )) {
       let file = e.target.files[0];
       let blob = window.URL.createObjectURL(file);
 
-      const imageContent = document.getElementById('item_image_1');
-      if (imageContent){
-        imageContent.remove();
-      }
-
       createImageHTML(blob)
     });
     document.getElementById('item_image_2').addEventListener('change', (e) => {

@@ -299,6 +299,48 @@ header {
   display: block;
 }
 
+#contents_down {
+  display: none;
+  background-color: #ffffff;
+  border-right: 58px solid transparent;
+  border-bottom: 86.6025px solid #202020;
+  border-left: 58px solid transparent;
+}
+
+#contents_down a {
+  display: block;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content_list_title {
+  width: 17%;
+  height: 50px;
+  margin: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.content_list {
+  width: 17%;
+  height: 60px;
+  margin: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.content_list img {
+  width: 100%;
+}
+
 /* メイン */
 
 .main_visual {
