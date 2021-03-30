@@ -73,3 +73,6 @@ gem 'ancestry'
 gem 'payjp'
 
 gem 'rails-i18n'
+
+# S3を使用する為のgem
+gem "aws-sdk-s3", require: false
