@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <div class="wrapper">
   <div class="pan entry-title top_margin30">
     <%= link_to "ホーム", root_path, class: :"blue" %> > 
@@ -12,12 +13,12 @@
 <div class="item_container">
   <div class="items_show_sub">
     <% @item.images.each do |image| %>
-      <%= image_tag image.variant(resize: '600x600'), class:'images' if @item.images.attached? %>
+      <%= image_tag image.variant(resize: '600x600'), class:'images ChangePhoto' if @item.images.attached? %>
     <% end %>
   </div>
   <div class="items_show_main">
     <% @item.images.first(1).each do |image| %>
-      <%= image_tag image.variant(resize: '600x600'), class:'images' if @item.images.attached? %>
+      <%= image_tag image.variant(resize: '600x600'), class:'images', id:"MainPhoto" if @item.images.attached? %>
     <% end %>
   </div>
 </div>
