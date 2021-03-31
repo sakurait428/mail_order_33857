@@ -14,7 +14,6 @@
       <% if item.category.parent.id == @params.to_i %>
         <div class="category_item mini">
           <% item.images.first(1).each do |image| %>
-
             <%= link_to item_path(item.id) do %>
               <%= image_tag image.variant(resize: '300x300'), class:'images bottom_space5' if item.images.attached? %>
             <% end %>
