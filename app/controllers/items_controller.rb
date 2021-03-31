@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Item.includes(:category).order("created_at DESC")
+    @items = Item.where(category_id: @item.category.id).order("created_at DESC")
   end
 
   def new

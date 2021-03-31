@@ -78,8 +78,8 @@
 </div>
 
 <div class="wrapper items_index">
-  <% @items.last(9).each do |item| %>
-    <% if ( item.category_id == @item.category.id ) && ( item.id != @item.id )%>
+  <% @items.first(9).each do |item| %>
+    <% if item.id != @item.id %>
       <div class="item_index">
         <% item.images.first(1).each do |image| %>
           <%= link_to item_path(item.id) do %>
@@ -95,8 +95,4 @@
       </div>
     <% end %>
   <% end %>
-</div>
-
-<div class="wrapper">
-
 </div>
