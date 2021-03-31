@@ -59,28 +59,28 @@ class ItemsController < ApplicationController
   end
 
   def item_all
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.page(params[:page]).per(24).order("created_at DESC")
   end
 
   def category_one
     @category = Category.find(params[:id])
     @params = params[:id]
     @categores = Category.all
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.page(params[:page]).per(24).order("created_at DESC")
   end
 
   def category_two
     @category = Category.find(params[:id])
     @params = params[:id]
     @categores = Category.all
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.page(params[:page]).per(24).order("created_at DESC")
   end
 
   def category_three
     @category = Category.find(params[:id])
     @params = params[:id]
     @categores = Category.all
-    @items = Item.where(category_id: params[:id]).order("created_at DESC")
+    @items = Item.all.page(params[:page]).per(24).order("created_at DESC")
   end
 
   def purchase_record
