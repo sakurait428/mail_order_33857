@@ -76,6 +76,10 @@ ul {
   padding-top: 60px;
 }
 
+.next_page a {
+  color: #0033CC;
+}
+
 .left-space {
   padding-left: 10px;
 }

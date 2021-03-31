@@ -76,3 +76,6 @@ gem 'rails-i18n'
 
 # S3を使用する為のgem
 gem "aws-sdk-s3", require: false
+
+#次のページを表示するgem
+gem 'kaminari'
