@@ -91,10 +91,6 @@ class ItemsController < ApplicationController
     @orders = Order.all.order("created_at DESC")
   end
 
-  def site_map
-    
-  end
-
   private
 
   def item_params
