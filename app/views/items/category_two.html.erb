@@ -9,27 +9,21 @@
 </div>
 
 <div class="wrapper">
-  <div class="category_items">
-    <% @items.each do |item| %>
-      <% if item.category.parent.id == @params.to_i %>
-        <div class="category_item mini">
+  <div class="category_items mini">
+    <% @item.each do |item| %>
+        <div class="category_item">
           <% item.images.first(1).each do |image| %>
             <%= link_to item_path(item.id) do %>
               <%= image_tag image.variant(resize: '300x300'), class:'images bottom_space5' if item.images.attached? %>
             <% end %>
-            <% end %>
-            <%= item.info_brand %><br>
-            <%= item.name %><br>
-            <span class="bottom_space5">販売価格：￥<%= item.price.to_s(:delimited)%></span><br>
-            <% if item.stock_quantity == 0 %>
+          <% end %>
+          <%= item.info_brand %><br>
+          <%= item.name %><br>
+          <span class="bottom_space5">販売価格：￥<%= item.price.to_s(:delimited)%></span><br>
+          <% if item.stock_quantity == 0 %>
             <span class="red bold">SOLDOUT</span>
-            <% end %>
+          <% end %>
         </div>
-      <% end %>
     <% end %>
   </div>
-</div>
-
-<div class="wrapper text_center top_space30 next_page">
-  <%= paginate @items %>
 </div>

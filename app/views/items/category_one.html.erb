@@ -9,12 +9,12 @@
 
 <div class="wrapper">
   <div class="category_items mini">
-    <% @items.each do |item| %>
+    <% @item.each do |item| %>
       <% if item.category.root.id == @params.to_i %>
         <div class="category_item">
           <% item.images.first(1).each do |image| %>
             <%= link_to item_path(item.id) do %>
-                <%= image_tag image.variant(resize: '300x300'), class:'images bottom_space5' if item.images.attached? %>
+              <%= image_tag image.variant(resize: '300x300'), class:'images bottom_space5' if item.images.attached? %>
             <% end %>
           <% end %>
           <%= item.info_brand %><br>
@@ -27,8 +27,4 @@
       <% end %>
     <% end %>
   </div>
-</div>
-
-<div class="wrapper text_center top_space30 next_page">
-  <%= paginate @items %>
 </div>

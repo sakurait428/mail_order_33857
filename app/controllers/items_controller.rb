@@ -66,14 +66,26 @@ class ItemsController < ApplicationController
     @category = Category.find(params[:id])
     @params = params[:id]
     @categores = Category.all
-    @items = Item.all.page(params[:page]).per(24).order("created_at DESC")
+    @items = Item.all.order("created_at DESC")
+    @item = []
+    @items.each do |item|
+      if item.category.root.id == @params.to_i
+        @item << item
+      end
+    end
   end
 
   def category_two
     @category = Category.find(params[:id])
     @params = params[:id]
     @categores = Category.all
-    @items = Item.all.page(params[:page]).per(24).order("created_at DESC")
+    @items = Item.all.order("created_at DESC")
+    @item = []
+    @items.each do |item|
+      if item.category.parent.id == @params.to_i
+        @item << item
+      end
+    end
   end
 
   def category_three
