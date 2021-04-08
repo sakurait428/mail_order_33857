@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="pan">ホーム>オンラインショップ>管理者用ログインページ</div>
+  <div class="pan"><%= link_to "ホーム", root_path %> > 管理者用ログインページ</div>
     <h1 class="page-title ">管理者用ログインページ</h1>
 </div>
 
@@ -8,6 +8,12 @@
     <h2 class="page-title"><span class="red">※MYページからログアウトして下さい</span></h2>
   </div>
 <% end %>
+
+<div class="wrapper">
+  <p>こちらを利用して、商品登録などお試し下さい</p>
+  <p>MAIL: test@admin.com</p>
+  <p>PASS: 11111a</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 

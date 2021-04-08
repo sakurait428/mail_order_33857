@@ -9,8 +9,6 @@
 
 ### Association
 
-- has_many :items
-
 ## inquiries テーブル
 
 | Column             | Type       | Options                        |
@@ -20,8 +18,6 @@
 | message            | text       | null: false                    |
 
 ### Association
-
-- has_many :items
 
 ## users テーブル
 
@@ -42,9 +38,7 @@
 
 ### Association
 
-- has_many :purchase_records
-- has_many :cards
-- has_many :items
+- has_one :card, dependent: :destroy
 
 ## itemsテーブル
 
@@ -68,9 +62,9 @@
 
 ### Association
 
-- belongs_to :shop
-- has_one :purchase_record
-- has_many :item_categories
+- has_many_attached :images
+- belongs_to :category
+- has_many :cart_items, dependent: :destroy
 
 # categories
 
@@ -81,7 +75,7 @@
 
 ### Association
 
-- has_many :item_categories
+- has_many :items
 
 ## cart_items テーブル
 
@@ -95,8 +89,8 @@
 
 ### Association
 
-- has_many :purchase_records
-- has_many :cards
+ - belongs_to :item
+ - belongs_to :cart
 
 ## carts テーブル
 
@@ -105,8 +99,7 @@
 
 ### Association
 
-- has_many :purchase_records
-- has_many :cards
+ - has_many :cart_items
 
 ## orders テーブル
 
@@ -121,8 +114,8 @@
 
 ### Association
 
-- has_many :purchase_records
-- has_many :cards
+ - has_many :cart_items, dependent: :destroy
+ - has_many :items
 
 ## cards テーブル
 
@@ -135,16 +128,4 @@
 ### Association
 
 - belongs_to :user
-
-## purchase_records テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| user      | references | null: false,  foreign_key: true|
-| item      | references | null: false,  foreign_key: true|
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
 
