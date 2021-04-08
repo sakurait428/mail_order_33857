@@ -79,3 +79,9 @@ gem "aws-sdk-s3", require: false
 
 #次のページを表示するgem
 gem 'kaminari'
+
+
+# プリケーションサーバー
+group :production do
+  gem 'unicorn', '5.4.1'
+end
