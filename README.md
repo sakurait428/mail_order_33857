@@ -1,6 +1,9 @@
+サイトについての詳細は、こちらへ記載してあります  
+http://s428.sakura.ne.jp/pf/brilhar_info.html
+
 # テーブル設計
 
-## admins テーブル
+## admins
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -9,7 +12,7 @@
 
 ### Association
 
-## inquiries テーブル
+## inquiries
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -19,7 +22,7 @@
 
 ### Association
 
-## users テーブル
+## users
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -40,7 +43,7 @@
 
 - has_one :card, dependent: :destroy
 
-## itemsテーブル
+## items
 
 | Column                 | Type       | Options                       |
 | ---------------------- | ---------- | ----------------------------- |
@@ -92,7 +95,7 @@
  - belongs_to :item
  - belongs_to :cart
 
-## carts テーブル
+## carts
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -101,7 +104,7 @@
 
  - has_many :cart_items
 
-## orders テーブル
+## orders
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -117,7 +120,7 @@
  - has_many :cart_items, dependent: :destroy
  - has_many :items
 
-## cards テーブル
+## cards
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
