@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_03_28_100548) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "admins", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cards", charset: "utf8", force: :cascade do |t|
     t.string "card_token", null: false
     t.string "customer_token", null: false
     t.bigint "user_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
-  create_table "cart_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cart_items", charset: "utf8", force: :cascade do |t|
     t.integer "quantity", default: 0
     t.bigint "item_id"
     t.bigint "cart_id"
@@ -67,37 +67,37 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
 
-  create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "carts", charset: "utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "category_blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "category_blands", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "category_genre_ones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "category_genre_ones", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "category_genre_twos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "category_genre_twos", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "inquiries", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.text "message", null: false
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "items", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "info_product", null: false
     t.integer "price", null: false
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "order_items", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
     t.integer "quantity"
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["user_id"], name: "index_order_items_on_user_id"
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "orders", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "postal_code", null: false
     t.text "address", null: false
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_100548) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
